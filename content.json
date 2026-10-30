@@ -1,0 +1,16 @@
+{
+  "candidates": [],
+  "representatives": [],
+  "electionNotice": "Le candidature SMI saranno pubblicate dopo la conferma dei nominativi e delle rispettive AFT.",
+  "provincialRepresentatives": [],
+  "regionalBoard": {
+    "source": "https://sindacatomedicitaliani.it/organigrammi-regionali/emilia-romagna/",
+    "consultedOn": "2026-10-28",
+    "members": [
+      {"role": "Presidente Regionale", "name": "Dott. Gaetano Guzzardella"},
+      {"role": "Segretario Regionale", "name": "Dott. Michele Tamburini"},
+      {"role": "Vice Segretario Regionale", "name": "Dott. Fabio Brinati"},
+      {"role": "Vice Segretario Regionale", "name": "Dott. Roberto Boero"}
+    ]
+  }
+}

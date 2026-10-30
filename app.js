@@ -1,0 +1,243 @@
+'use strict';
+
+const JOIN = 'https://sindacatomedicitaliani.it/iscrizioni/';
+const main = document.querySelector('#main');
+const icons = {
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  ballot: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m8 13-4 4v11h24V17l-4-4M4 17h24M12 8l6-5 8 10-6 5Z"/><path d="m16 10 2 2 3-3M11 23h10"/></svg>',
+  map: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m2 5 5-2 6 2 5-2v13l-5 2-6-2-5 2Zm5-2v13m6-11v13"/></svg>',
+  list: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 5h12M6 10h12M6 15h12M2 5h1M2 10h1M2 15h1"/></svg>',
+  book: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 4h18a2 2 0 0 1 2 2v23H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Zm0 20h20M10 9h10M10 13h7M4 26a2 2 0 0 1 2-2"/></svg>',
+  people: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m8 12 3 3 5-6"/></svg>'
+};
+let geography, content, credits;
+let selectedDistrict = 'bologna';
+let mapView = 'map';
+let previousRoute = '';
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const photo = id => `./assets/photos/${id}.webp`;
+const districtUrl = id => `#/distretto/${id}`;
+const district = id => geography.districts.find(d => d.id === id);
+const photoCredit = id => credits.find(p => p.id === id) || {};
+const districtName = d => d.id === 'bologna' ? 'Città di Bologna' : d.name;
+const joinSection = () => `<section class="join-section"><div class="container join-inner"><div><h2>Fai parte di SMI.</h2><p>Iscriviti al Sindacato Medici Italiani dal portale nazionale.</p></div><a class="button button-red" href="${JOIN}" target="_blank" rel="noopener noreferrer">UNISCITI A NOI! <span aria-hidden="true">↗</span></a></div></section>`;
+const breadcrumb = label => `<div class="breadcrumb"><a href="#/">Home</a><span aria-hidden="true">/</span><span>${esc(label)}</span></div>`;
+
+function photoTag(id, cls='', eager=false) {
+  const p=photoCredit(id);
+  return `<img src="${photo(id)}" alt="${esc(p.location || p.title || 'Paesaggio del territorio bolognese')}" ${cls?`class="${cls}"`:''} ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
+}
+
+function homePage() {
+  document.title = 'SMI Bologna — Il tuo territorio. I tuoi riferimenti.';
+  main.innerHTML = `<section class="hero">
+    ${photoTag('hero','hero-image',true)}
+    <div class="container hero-content"><p class="eyebrow">Sindacato Medici Italiani · Bologna</p>
+      <h1>Il tuo territorio.<br><em>I tuoi riferimenti.</em></h1>
+      <p class="hero-copy">Dalla città all’Appennino, dalla pianura alle valli.<br>SMI Bologna, a partire dai medici e dai luoghi.</p>
+      <div class="hero-actions"><a class="button button-red" href="#/#territorio">Esplora il territorio <span aria-hidden="true">↗</span></a><a class="text-link" href="#/elezioni">Elezioni dei referenti AFT <span aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="hero-bottom"><span class="hero-location">${icons.pin} Bologna, uno sguardo sulla città</span><a class="hero-scroll" href="#/#territorio">IL TERRITORIO, DA VICINO <i aria-hidden="true">↓</i></a></div>
+  </section>
+  <div class="container intro-band"><div class="band-heading">${icons.ballot}<div><strong>Elezioni dei referenti AFT</strong><span>Uno spazio dedicato alle candidature SMI.</span></div></div><p>Le candidature, organizzate per AFT e distretto,<br>in un unico punto di riferimento.</p><a href="#/elezioni" class="text-link">Vai alle elezioni <span aria-hidden="true">↗</span></a></div>
+  <section class="container territory" id="territorio"><div class="section-heading"><div><p class="eyebrow">Una mappa, tanti territori</p><h2>Trova il tuo distretto.</h2></div><p>Esplora la mappa per trovare i rappresentanti sindacali e le candidature AFT del tuo territorio.</p></div>
+    <div class="map-toolbar"><p class="map-hint">${icons.pin} Seleziona un distretto per conoscerlo</p><div class="view-toggle" aria-label="Visualizzazione del territorio"><button data-view="map" aria-pressed="true">${icons.map} Mappa</button><button data-view="list" aria-pressed="false">${icons.list} Elenco</button></div></div>
+    <div class="map-experience"><div class="map-stage" id="map-stage"><div class="map-compass"><span aria-hidden="true">↑</span> N</div>${mapSvg()}<div class="map-legend"><span><i></i> AUSL di Bologna</span><span><i></i> AUSL di Imola</span></div></div><div class="district-preview" id="district-preview" aria-live="polite"></div><div class="district-list" id="district-list" hidden>${geography.districts.map(listItem).join('')}</div></div>
+    <p class="map-source">Sei distretti dell’AUSL di Bologna e il territorio dell’AUSL di Imola. I distretti comprendono più AFT. <a href="#/crediti">Fonti della mappa ↗</a></p>
+  </section>
+  <section class="election-section"><div class="container election-inner"><div><p class="eyebrow">Elezioni AFT</p><h2>Le persone.<br>Prima di tutto.</h2></div><div class="election-copy"><p>Uno spazio per conoscere i medici candidati da SMI al ruolo di referente AFT. Nominativi e informazioni saranno disponibili dopo la conferma delle candidature.</p><a href="#/elezioni" class="text-link">Scopri la sezione elezioni <span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="container archive-teaser"><div class="archive-icon">${icons.book}</div><div><p class="eyebrow">Archivio SMI</p><h2>La norma giusta,<br><em>quando serve.</em></h2></div><div><p>Lo spazio dedicato ad accordi, normativa e giurisprudenza è in preparazione.</p><a href="#/archivio" class="text-link">Scopri l’archivio <span aria-hidden="true">→</span></a></div></section>${joinSection()}`;
+  renderDistrictPreview();
+  wireMap();
+}
+
+function mapSvg() {
+  const labels={bologna:['Città di','Bologna'],'reno-lavino-samoggia':['Reno, Lavino','e Samoggia'],'savena-idice':['Savena','Idice'],appennino:['Appennino','bolognese'],'pianura-est':['Pianura Est'],'pianura-ovest':['Pianura','Ovest'],imola:['Imola']};
+  return `<svg class="district-map" viewBox="${geography.viewBox}" role="group" aria-label="Mappa interattiva dei distretti dell’area metropolitana di Bologna">${geography.districts.map(d=>`<path class="district-shape ${d.id===selectedDistrict?'is-selected':''}" data-id="${d.id}" d="${d.path}" tabindex="0" role="button" aria-label="${esc(d.name)}, ${esc(d.ausl)}: mostra informazioni" aria-pressed="${d.id===selectedDistrict}"><title>${esc(d.name)} · ${esc(d.ausl)}</title></path>`).join('')}${geography.districts.map(d=>`<text class="map-label ${d.id===selectedDistrict?'is-selected':''}" data-label="${d.id}" x="${d.label.x}" y="${d.label.y}" aria-hidden="true">${labels[d.id].map((t,i)=>`<tspan x="${d.label.x}" dy="${i?'1.3em':labels[d.id].length>1?'-.3em':'0'}">${esc(t)}</tspan>`).join('')}</text>`).join('')}</svg>`;
+}
+
+function listItem(d) {
+  return `<a href="${districtUrl(d.id)}" class="district-list-item">${photoTag(d.id)}<div class="list-info"><span class="mini-label">${esc(d.ausl)}</span><h3>${esc(d.name)}</h3><p>${d.communeCount} ${d.communeCount===1?'comune':'comuni'} · Rappresentanti e candidature</p></div><span aria-hidden="true">↗</span></a>`;
+}
+
+function renderDistrictPreview() {
+  const d=district(selectedDistrict), p=photoCredit(d.id);
+  const candidateCount=content.candidates.filter(c=>c.district===d.id).length;
+  const repCount=content.representatives.filter(c=>c.district===d.id).length;
+  const el=document.querySelector('#district-preview');
+  if(!el)return;
+  el.classList.remove('changing');
+  el.innerHTML=`<div class="preview-photo">${photoTag(d.id)}<span class="photo-caption">${esc(p.location||'')}</span></div><div class="preview-content"><p class="mini-label">${esc(d.ausl)} · ${d.communeCount} ${d.communeCount===1?'comune':'comuni'}</p><h3>${esc(d.name)}</h3><p class="preview-status"><span class="status-dot"></span>${repCount?`${repCount} rappresentanti sindacali`:'Rappresentanti · in aggiornamento'}</p><p class="preview-status"><span class="status-dot"></span>${candidateCount?`${candidateCount} candidature AFT`:'Candidature AFT · in aggiornamento'}</p><a class="text-link" href="${districtUrl(d.id)}">Esplora il distretto <span aria-hidden="true">↗</span></a></div>`;
+  void el.offsetWidth;el.classList.add('changing');
+}
+
+function wireMap() {
+  document.querySelectorAll('.district-shape').forEach(el=>{
+    const select=()=>{
+      selectedDistrict=el.dataset.id;
+      document.querySelectorAll('.district-shape').forEach(p=>{p.classList.toggle('is-selected',p.dataset.id===selectedDistrict);p.setAttribute('aria-pressed',p.dataset.id===selectedDistrict)});
+      document.querySelectorAll('.map-label').forEach(p=>p.classList.toggle('is-selected',p.dataset.label===selectedDistrict));
+      renderDistrictPreview();
+    };
+    el.addEventListener('click',select);
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select()}});
+  });
+  document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{
+    mapView=b.dataset.view;
+    document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    document.querySelector('#map-stage').hidden=mapView==='list';
+    document.querySelector('#district-preview').hidden=mapView==='list';
+    document.querySelector('#district-list').hidden=mapView==='map';
+  }));
+  if(mapView==='list')document.querySelector('[data-view="list"]').click();
+}
+
+function districtPage(id, tab='rappresentanti') {
+  const d=district(id);
+  if(!d)return notFound();
+  const p=photoCredit(d.id);
+  document.title=`${d.name} — SMI Bologna`;
+  main.innerHTML=`<section class="district-hero">${photoTag(d.id,'',true)}<div class="container district-hero-inner"><div class="breadcrumb"><a href="#/">Home</a><span aria-hidden="true">/</span><a href="#/#territorio">Il territorio</a><span aria-hidden="true">/</span><span>${esc(d.name)}</span></div><p class="eyebrow">Distretto · ${esc(d.ausl)}</p><h1>${esc(d.name)}</h1><p class="district-location">${icons.pin.replace('<svg','<svg width="13" height="13"')} ${esc(p.location||'')}</p></div></section>
+  <div class="container district-body"><div><div class="district-tabs" role="tablist" aria-label="Informazioni del distretto"><button id="tab-reps" role="tab" data-tab="rappresentanti" aria-controls="district-panel" aria-selected="${tab==='rappresentanti'}">Rappresentanti sindacali</button><button id="tab-candidates" role="tab" data-tab="candidature" aria-controls="district-panel" aria-selected="${tab==='candidature'}">Candidature AFT</button></div><div id="district-panel" class="district-tab-panel" role="tabpanel"></div></div><aside class="district-sidebar"><h3>Il distretto, da vicino.</h3><span class="mini-label">Azienda sanitaria</span><p>${esc(d.ausl)}${d.id==='imola'?'<br>Distinta dall’AUSL di Bologna.':''}</p><span class="mini-label">${d.communeCount===1?'Il comune':'I '+d.communeCount+' comuni'}</span><div class="communes">${d.communes.map(esc).join(' · ')}</div><a href="#/#territorio" class="text-link">Torna alla mappa <span aria-hidden="true">↗</span></a></aside></div>
+  <section class="container all-districts"><h2>Esplora gli altri distretti.</h2><div class="district-pills">${geography.districts.filter(x=>x.id!==id).map(x=>`<a href="${districtUrl(x.id)}">${esc(x.name)} ↗</a>`).join('')}</div></section>${joinSection()}`;
+  const buttons=[...document.querySelectorAll('[data-tab]')];
+  const showTab=(value)=>{
+    buttons.forEach(b=>{b.setAttribute('aria-selected',b.dataset.tab===value);b.tabIndex=b.dataset.tab===value?0:-1});
+    renderDistrictPanel(d,value);
+  };
+  buttons.forEach((b,i)=>{
+    b.addEventListener('click',()=>showTab(b.dataset.tab));
+    b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=(e.key==='Home'?0:e.key==='End'?buttons.length-1:(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length);buttons[next].focus();showTab(buttons[next].dataset.tab)}});
+  });
+  showTab(tab);
+}
+
+function renderDistrictPanel(d, tab) {
+  const isCandidates=tab==='candidature';
+  const records=(isCandidates?content.candidates:content.representatives).filter(p=>p.district===d.id);
+  const el=document.querySelector('#district-panel');
+  el.setAttribute('aria-labelledby',isCandidates?'tab-candidates':'tab-reps');
+  el.innerHTML=`<h2>${isCandidates?'Le candidature SMI.':'I tuoi riferimenti SMI.'}</h2><p>${isCandidates?'I medici candidati al ruolo di referente AFT, suddivisi per aggregazione funzionale territoriale.':'I riferimenti sindacali SMI per i medici del distretto.'}</p>${records.length?records.map(p=>personCard(p,isCandidates)).join(''):`<div class="empty-state"><div class="empty-icon">${isCandidates?icons.check:icons.people}</div><div><h3>${isCandidates?'Le candidature stanno arrivando.':'I riferimenti saranno disponibili qui.'}</h3><p>${isCandidates?'Nomi, AFT e profili saranno pubblicati dopo la conferma delle candidature. Torna in questa pagina per consultare i candidati del distretto.':'Questa sezione accoglierà i nominativi, gli incarichi e i contatti dei rappresentanti sindacali, dopo la loro conferma.'}</p><span class="status-label"><i class="status-dot"></i> Contenuti in aggiornamento</span></div></div>`}`;
+}
+
+function personCard(p,candidate) {
+  return `<article class="empty-state">${p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.name)}" width="64" height="64" loading="lazy">`:`<div class="empty-icon">${icons.people}</div>`}<div><span class="mini-label">${esc(candidate?p.aft:p.role)}</span><h3>${esc(p.name)}</h3><p>${esc(p.bio||'')}</p>${p.email?`<a class="text-link" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:''}</div></article>`;
+}
+
+function electionsPage() {
+  document.title='Elezioni dei referenti AFT — SMI Bologna';
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Elezioni AFT')}<p class="eyebrow">Elezioni dei referenti AFT</p><h1>Le candidature SMI.<br><em>AFT per AFT.</em></h1><p class="lead">Tutti i riferimenti per conoscere i candidati al ruolo di referente AFT nel tuo territorio.</p></section><section class="container elections-content"><div class="election-note">${esc(content.electionNotice)}</div><div class="filter-bar"><label for="district-search">Cerca il tuo territorio<input id="district-search" type="search" placeholder="Distretto o comune…" autocomplete="off"></label><label for="ausl-filter">Azienda sanitaria<select id="ausl-filter"><option value="all">Tutte le aziende sanitarie</option><option value="AUSL di Bologna">AUSL di Bologna</option><option value="AUSL di Imola">AUSL di Imola</option></select></label></div><div class="election-grid" id="election-grid" aria-live="polite"></div><p class="notice-small">Un distretto può comprendere più AFT. Le schede di candidatura indicheranno l’AFT di riferimento di ciascun medico. Date e modalità di voto saranno riportate quando confermate.</p></section>${joinSection()}`;
+  const draw=()=>{
+    const q=document.querySelector('#district-search').value.trim().toLocaleLowerCase('it');
+    const ausl=document.querySelector('#ausl-filter').value;
+    const ds=geography.districts.filter(d=>(ausl==='all'||d.ausl===ausl)&&(`${d.name} ${d.communes.join(' ')}`.toLocaleLowerCase('it').includes(q)));
+    document.querySelector('#election-grid').innerHTML=ds.length?ds.map(d=>{
+      const n=content.candidates.filter(c=>c.district===d.id).length;
+      return `<a href="${districtUrl(d.id)}/candidature" class="election-card">${photoTag(d.id)}<div class="election-card-body"><span class="mini-label">${esc(d.ausl)}</span><h2>${esc(d.name)}</h2><p>${n?`${n} candidature pubblicate.`:'Candidature in aggiornamento.'}</p><span class="text-link">Vai alle candidature <span aria-hidden="true">↗</span></span></div></a>`;
+    }).join(''):'<p class="no-results">Nessun distretto trovato. Prova con un altro comune o modifica il filtro.</p>';
+  };
+  document.querySelector('#district-search').addEventListener('input',draw);
+  document.querySelector('#ausl-filter').addEventListener('change',draw);
+  draw();
+}
+
+function archivePage() {
+  document.title='Archivio SMI — SMI Bologna';
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Archivio SMI')}<p class="eyebrow">Memoria istituzionale SMI</p><h1>La norma giusta,<br><em>quando serve.</em></h1><p class="lead">Lo spazio dedicato alle fonti della professione medica: accordi, normativa e giurisprudenza.</p></section><section class="container archive-page"><div><div class="archive-icon">${icons.book}</div><h2>Un archivio,<br>in preparazione.</h2><p>Il progetto Archivio SMI è in lavorazione. I documenti e gli strumenti di consultazione saranno disponibili in questa sezione.</p><span class="status-label"><i class="status-dot"></i> Prossimamente</span></div><div><div class="archive-category"><span>01</span><div><h3>Accordi e contratti</h3><p>Accordi nazionali e regionali.</p></div></div><div class="archive-category"><span>02</span><div><h3>Normativa e atti</h3><p>Fonti nazionali, regionali e aziendali.</p></div></div><div class="archive-category"><span>03</span><div><h3>Giurisprudenza</h3><p>Pronunce e riferimenti per la professione.</p></div></div></div></section>${joinSection()}`;
+}
+
+function representativesNav(active) {
+  return `<nav class="representatives-nav" aria-label="Livelli di rappresentanza"><a href="#/rappresentanti" ${active==='provincia'?'aria-current="page"':''}>Bologna e provincia</a><a href="#/organigramma-regionale" ${active==='regione'?'aria-current="page"':''}>Emilia-Romagna</a><a href="https://sindacatomedicitaliani.it/organigramma-nazionale/" target="_blank" rel="noopener noreferrer">Organigramma nazionale <span aria-hidden="true">↗</span></a></nav>`;
+}
+
+function provincialRepresentativesPage() {
+  document.title='Rappresentanti provinciali — SMI Bologna';
+  const people=content.provincialRepresentatives||[];
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Rappresentanti provinciali')}<p class="eyebrow">Il sindacato · Bologna e provincia</p><h1>Rappresentanti<br><em>provinciali.</em></h1></section><section class="container union-content">${representativesNav('provincia')}<div class="provincial-content">${people.length?people.map(p=>personCard(p,false)).join(''):`<div class="empty-state union-empty"><div class="empty-icon">${icons.people}</div><div><h2>Pagina in preparazione.</h2><p>Qui saranno disponibili i nominativi e gli incarichi dei rappresentanti provinciali di SMI Bologna.</p><span class="status-label"><i class="status-dot"></i> Contenuti in aggiornamento</span></div></div>`}</div></section>${joinSection()}`;
+}
+
+function regionalBoardPage() {
+  document.title='Organigramma Emilia-Romagna — SMI Bologna';
+  const board=content.regionalBoard;
+  const consulted=new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',year:'numeric',timeZone:'Europe/Rome'}).format(new Date(`${board.consultedOn}T12:00:00Z`));
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Organigramma Emilia-Romagna')}<p class="eyebrow">Il sindacato · SMI Emilia-Romagna</p><h1>Organigramma<br><em>regionale.</em></h1><p class="lead">Le cariche SMI in Emilia-Romagna, come riportate dal sito nazionale.</p></section><section class="container union-content">${representativesNav('regione')}<div class="regional-board" aria-label="Cariche regionali">${board.members.map((p,i)=>`<article class="board-person"><span class="board-person-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><p class="mini-label">${esc(p.role)}</p><h2>${esc(p.name)}</h2></article>`).join('')}</div><div class="board-source"><div><p>Fonte: Segreteria Nazionale SMI.</p><p>Fonte consultata il ${esc(consulted)}. Per eventuali aggiornamenti, consulta la pagina ufficiale.</p></div><a class="text-link" href="${esc(board.source)}" target="_blank" rel="noopener noreferrer">Organigramma regionale ufficiale <span aria-hidden="true">↗</span></a></div></section>${joinSection()}`;
+}
+
+function bolognaCommitmentPage() {
+  document.title='Il nostro impegno per Bologna — SMI Bologna';
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Il nostro impegno per Bologna')}<p class="eyebrow">SMI Bologna</p><h1>Il nostro impegno<br><em>per Bologna.</em></h1></section><section class="container union-content commitment-content"><div class="empty-state union-empty"><div class="empty-icon">${icons.book}</div><div><h2>Contenuti in preparazione.</h2><p>Le priorità territoriali di SMI Bologna saranno pubblicate in questa pagina.</p></div></div></section>${joinSection()}`;
+}
+
+function creditsPage() {
+  document.title='Fonti e crediti — SMI Bologna';
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Fonti e crediti')}<p class="eyebrow">Fonti e crediti</p><h1>I luoghi, le fonti,<br><em>le immagini.</em></h1></section><section class="container credits-content"><h2>La mappa del territorio</h2><p>Confini © ISTAT, da <a href="https://github.com/guglielmo/geojson-italy" target="_blank" rel="noopener noreferrer">geojson-italy</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>). Confini comunali 2026 aggregati e semplificati per la visualizzazione. La mappa è uno strumento di navigazione del sito.</p><p>Composizione dei distretti: <a href="https://www.ausl.bologna.it/servt/distr" target="_blank" rel="noopener noreferrer">AUSL di Bologna — Distretti</a>; <a href="https://www.nuovocircondarioimolese.it/siti-tematici/usep/governance" target="_blank" rel="noopener noreferrer">Nuovo Circondario Imolese</a>. Imola è rappresentata come territorio di un’azienda sanitaria distinta.</p><h2>Fotografie</h2><p>Fotografie dei luoghi reali del territorio. Le immagini sono state ridimensionate e convertite in WebP; la visualizzazione può prevedere ritagli.</p>${credits.map(p=>`<div class="credit-photo">${photoTag(p.id)}<div><strong>${esc(p.location||p.title)}</strong><p>${esc(p.author)} · <a href="${esc(p.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(p.license)}</a><br><a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a></p></div></div>`).join('')}<h2>Identità visiva</h2><p>Il marchio SMI — Sindacato Medici Italiani proviene dal <a href="https://sindacatomedicitaliani.it/" target="_blank" rel="noopener noreferrer">sito nazionale ufficiale</a>. I caratteri Manrope, DM Sans e Playfair Display sono distribuiti con licenza SIL Open Font License.</p><h2>Stato dei contenuti</h2><p>Questa è un’anteprima del sito. I nominativi dei candidati, le AFT, gli incarichi e i contatti dei rappresentanti saranno inseriti dopo la loro conferma. L’archivio documentale non è ancora consultabile.</p></section>`;
+}
+
+function notFound() {
+  document.title='Pagina non trovata — SMI Bologna';
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Pagina non trovata')}<p class="eyebrow">404</p><h1>Ritroviamo la strada.</h1><p class="lead">Questa pagina non è disponibile. Riparti dalla mappa del territorio.</p><p style="margin:28px 0"><a href="#/#territorio" class="button button-red">Vai alla mappa <span aria-hidden="true">→</span></a></p></section>`;
+}
+
+function closeMenu() {
+  document.querySelector('.menu-toggle').setAttribute('aria-expanded','false');
+  document.querySelector('.menu-toggle').setAttribute('aria-label','Apri menu');
+  document.querySelector('#mobile-nav').hidden=true;
+  document.body.classList.remove('menu-open');
+  closeUnionMenu();
+}
+
+function closeUnionMenu(returnFocus=false) {
+  const toggle=document.querySelector('.nav-disclosure-toggle');
+  if(toggle.getAttribute('aria-expanded')==='true') {
+    toggle.setAttribute('aria-expanded','false');
+    document.querySelector('#union-nav').hidden=true;
+    if(returnFocus)toggle.focus();
+  }
+}
+
+function route() {
+  const raw=location.hash.slice(1)||'/';
+  const [path,anchor]=raw.split('#');
+  const parts=path.split('/').filter(Boolean);
+  const sameHome=previousRoute==='/'&&path==='/';
+  closeMenu();
+  if(!sameHome){
+    if(!parts.length)homePage();
+    else if(parts[0]==='distretto')districtPage(parts[1],parts[2]==='candidature'?'candidature':'rappresentanti');
+    else if(parts[0]==='elezioni')electionsPage();
+    else if(parts[0]==='archivio')archivePage();
+    else if(parts[0]==='rappresentanti')provincialRepresentativesPage();
+    else if(parts[0]==='organigramma-regionale')regionalBoardPage();
+    else if(parts[0]==='impegno-bologna')bolognaCommitmentPage();
+    else if(parts[0]==='crediti')creditsPage();
+    else notFound();
+    main.classList.remove('route-enter');void main.offsetWidth;main.classList.add('route-enter');
+    window.scrollTo({top:0,behavior:'instant'});
+    if(previousRoute)main.focus({preventScroll:true});
+  }
+  document.querySelectorAll('[data-nav]').forEach(a=>{const active=parts[0]===a.dataset.nav||(a.dataset.nav==='territorio'&&(!parts.length&&anchor==='territorio'||parts[0]==='distretto'))||(a.dataset.nav==='sindacato'&&['rappresentanti','organigramma-regionale','impegno-bologna'].includes(parts[0]));a.classList.toggle('active',active);if(a.tagName==='A'){active?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')}});
+  previousRoute=path;
+  if(sameHome&&!anchor)window.scrollTo({top:0,behavior:'smooth'});
+  if(anchor)requestAnimationFrame(()=>document.getElementById(anchor)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+}
+
+async function init() {
+  try {
+    [geography,content,credits]=await Promise.all(['./assets/district-map.json','./content.json','./assets/photo-credits.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
+    document.querySelector('#year').textContent=new Date().getFullYear();
+    route();
+    window.addEventListener('hashchange',route);
+    document.querySelector('.skip-link').addEventListener('click',e=>{e.preventDefault();main.focus();main.scrollIntoView({behavior:'instant'})});
+    document.addEventListener('click',e=>{const link=e.target.closest('a[href^="#/"]');if(link&&link.getAttribute('href')===location.hash){e.preventDefault();route()}});
+    document.querySelector('.menu-toggle').addEventListener('click',()=>{const button=document.querySelector('.menu-toggle');const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',open);button.setAttribute('aria-label',open?'Chiudi menu':'Apri menu');document.querySelector('#mobile-nav').hidden=!open;document.body.classList.toggle('menu-open',open)});
+    document.querySelector('.nav-disclosure-toggle').addEventListener('click',()=>{const toggle=document.querySelector('.nav-disclosure-toggle');const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',open);document.querySelector('#union-nav').hidden=!open});
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-disclosure')||e.target.closest('#union-nav a'))closeUnionMenu()});
+    document.querySelector('.nav-disclosure').addEventListener('focusout',e=>{if(!e.currentTarget.contains(e.relatedTarget))closeUnionMenu()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeUnionMenu(true);closeMenu()}});
+  } catch(error) {
+    main.innerHTML='<section class="container page-header"><h1>Un momento, stiamo aggiornando il sito.</h1><p class="lead">Ricarica la pagina per riprovare. Le iscrizioni sono disponibili sul sito nazionale.</p><p style="margin:25px 0"><a class="button button-red" href="https://sindacatomedicitaliani.it/iscrizioni/">UNISCITI A NOI! ↗</a></p></section>';
+    console.error('Caricamento contenuti non riuscito',error);
+  }
+}
+init();

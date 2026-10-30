@@ -1,0 +1,5 @@
+# SMI Bologna: anteprima dimostrativa, non destinata ai motori di ricerca.
+# Il crawler deve poter leggere i meta robots noindex, nofollow, noarchive.
+# Non usare Disallow: /: impedirebbe di leggere l’istruzione noindex.
+User-agent: *
+Disallow:

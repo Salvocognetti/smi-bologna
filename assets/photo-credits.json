@@ -1,0 +1,90 @@
+[
+  {
+    "id": "hero",
+    "file": "hero.webp",
+    "title": "Panorama di Bologna al tramonto",
+    "author": "Alexandros Papadopoulos (alexpapad)",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Panorama_of_Bologna_at_sunset.jpg",
+    "location": "Bologna",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "bologna",
+    "file": "bologna.webp",
+    "title": "Panorama di Bologna",
+    "author": "Lorenzo Gaudenzi",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bologna_cityscape_1.jpg",
+    "location": "Bologna",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "reno-lavino-samoggia",
+    "file": "reno-lavino-samoggia.webp",
+    "title": "Abbazia di Santa Maria di Monteveglio",
+    "author": "RobyBS89",
+    "license": "Pubblico dominio",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Monteveglio_abbazia.jpg#Licensing",
+    "source": "https://commons.wikimedia.org/wiki/File:Monteveglio_abbazia.jpg",
+    "location": "Monteveglio, Valsamoggia",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "appennino",
+    "file": "appennino.webp",
+    "title": "Rocchetta Mattei",
+    "author": "Quart1984",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Rocchetta_Mattei.jpg",
+    "location": "Grizzana Morandi",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "pianura-est",
+    "file": "pianura-est.webp",
+    "title": "Castello di Bentivoglio",
+    "author": "Clo5919",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Castello_di_Bentivoglio_blocco_di_entrata.jpg",
+    "location": "Bentivoglio",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "pianura-ovest",
+    "file": "pianura-ovest.webp",
+    "title": "Piazzetta Betlemme",
+    "author": "Maretta Angelini",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:San_Giovanni_Persiceto.jpg",
+    "location": "San Giovanni in Persiceto",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "savena-idice",
+    "file": "savena-idice.webp",
+    "title": "Parco regionale dei Gessi Bolognesi e Calanchi dell’Abbadessa",
+    "author": "Sally V",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Parco_regionale_dei_Gessi_Bolognesi.jpg",
+    "location": "Gessi bolognesi",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  },
+  {
+    "id": "imola",
+    "file": "imola.webp",
+    "title": "Rocca Sforzesca di Imola",
+    "author": "DanteF56 (Dante Farricella)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Imola_-_Rocca_sforzesca_di_Imola_-_2026-09-29_10-32-01_001.jpg",
+    "location": "Imola",
+    "modifications": "Ridimensionamento e conversione WebP. Ritaglio in visualizzazione."
+  }
+]

@@ -1,16 +1,73 @@
 {
-  "candidates": [],
+  "candidates": [
+    {
+      "id": "nicoletta-giulietti",
+      "name": "D.ssa Nicoletta Giulietti",
+      "district": "pianura-est",
+      "aftId": "argelato-castello-dargile-pieve-di-cento",
+      "aft": "AFT/NCP Argelato, Castello d’Argile e Pieve di Cento",
+      "role": "Medico di medicina generale",
+      "practiceLocation": "Castello d’Argile",
+      "photo": "./assets/photos/nicoletta-giulietti.jpg",
+      "bio": "Vorrei battermi per ridare dignità alla nostra professione, contrastando la riduzione del ruolo del medico di medicina generale a quello di un mero scrivano.\n\nMi piacerebbe rafforzare l’assistenza sul territorio, mettendo al centro il paziente, e promuovere l’educazione sanitaria, aiutando le persone a conoscere e utilizzare correttamente i servizi disponibili.\n\nPer farlo, però, l’assistenza territoriale deve funzionare meglio: gli assistiti devono poter trovare risposta ai propri bisogni nel rapporto con il proprio medico, ricorrendo al Pronto Soccorso quando è necessario."
+    },
+    {
+      "id": "salvatore-cognetti",
+      "name": "Dott. Salvatore Cognetti",
+      "district": "reno-lavino-samoggia",
+      "aftId": "valle-del-samoggia",
+      "aft": "NCP/AFT Valle del Samoggia",
+      "role": "Medico di medicina generale",
+      "practiceLocation": "Crespellano",
+      "photo": null,
+      "bio": null,
+      "profilePending": true
+    }
+  ],
   "representatives": [],
-  "electionNotice": "Le candidature SMI saranno pubblicate dopo la conferma dei nominativi e delle rispettive AFT.",
+  "electionNotice": "Le candidature SMI sono organizzate per distretto e AFT/NCP. L’elenco delle aggregazioni e i profili vengono aggiornati progressivamente.",
   "provincialRepresentatives": [],
   "regionalBoard": {
     "source": "https://sindacatomedicitaliani.it/organigrammi-regionali/emilia-romagna/",
     "consultedOn": "2026-10-28",
     "members": [
-      {"role": "Presidente Regionale", "name": "Dott. Gaetano Guzzardella"},
-      {"role": "Segretario Regionale", "name": "Dott. Michele Tamburini"},
-      {"role": "Vice Segretario Regionale", "name": "Dott. Fabio Brinati"},
-      {"role": "Vice Segretario Regionale", "name": "Dott. Roberto Boero"}
+      {
+        "role": "Presidente Regionale",
+        "name": "Dott. Gaetano Guzzardella"
+      },
+      {
+        "role": "Segretario Regionale",
+        "name": "Dott. Michele Tamburini"
+      },
+      {
+        "role": "Vice Segretario Regionale",
+        "name": "Dott. Fabio Brinati"
+      },
+      {
+        "role": "Vice Segretario Regionale",
+        "name": "Dott. Roberto Boero"
+      }
     ]
-  }
+  },
+  "afts": [
+    {
+      "id": "argelato-castello-dargile-pieve-di-cento",
+      "district": "pianura-est",
+      "name": "Argelato, Castello d’Argile e Pieve di Cento",
+      "label": "AFT/NCP",
+      "communes": [
+        "Argelato",
+        "Castello d’Argile",
+        "Pieve di Cento"
+      ],
+      "source": "https://www.ausl.bologna.it/servt/distr/pianura-est/lorganizzazione-del-distretto"
+    },
+    {
+      "id": "valle-del-samoggia",
+      "district": "reno-lavino-samoggia",
+      "name": "Valle del Samoggia",
+      "label": "NCP/AFT",
+      "communes": []
+    }
+  ]
 }

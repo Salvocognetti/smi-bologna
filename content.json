@@ -25,7 +25,7 @@
     }
   ],
   "representatives": [],
-  "electionNotice": "Le candidature SMI sono organizzate per distretto e AFT/NCP. L’elenco delle aggregazioni e i profili vengono aggiornati progressivamente.",
+  "electionNotice": "Le candidature condivise SMI–SNAMI sono organizzate per distretto e AFT. Per ogni aggregazione è predisposto uno spazio, che viene completato quando il nominativo è confermato.",
   "provincialRepresentatives": [],
   "regionalBoard": {
     "source": "https://sindacatomedicitaliani.it/organigrammi-regionali/emilia-romagna/",
@@ -51,23 +51,651 @@
   },
   "afts": [
     {
+      "id": "bologna-borgo-panigale",
+      "district": "bologna",
+      "name": "Borgo Panigale",
+      "aliases": [
+        "AFT Borgo Panigale"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=19",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "bologna-reno",
+      "district": "bologna",
+      "name": "Reno",
+      "aliases": [
+        "AFT Reno"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-navile-1",
+      "district": "bologna",
+      "name": "Navile 1",
+      "aliases": [
+        "AFT Navile 1"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-navile-2",
+      "district": "bologna",
+      "name": "Navile 2",
+      "aliases": [
+        "AFT Navile 2"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-porto",
+      "district": "bologna",
+      "name": "Porto",
+      "aliases": [
+        "AFT Porto"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-saragozza",
+      "district": "bologna",
+      "name": "Saragozza",
+      "aliases": [
+        "AFT Saragozza"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-san-vitale",
+      "district": "bologna",
+      "name": "San Vitale",
+      "aliases": [
+        "AFT San Vitale"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-san-donato",
+      "district": "bologna",
+      "name": "San Donato",
+      "aliases": [
+        "AFT San Donato"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-santo-stefano-1",
+      "district": "bologna",
+      "name": "Santo Stefano 1",
+      "aliases": [
+        "AFT Santo Stefano 1"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-santo-stefano-2",
+      "district": "bologna",
+      "name": "Santo Stefano 2",
+      "aliases": [
+        "AFT Santo Stefano 2"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-savena-1",
+      "district": "bologna",
+      "name": "Savena 1",
+      "aliases": [
+        "AFT Savena 1"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "bologna-savena-2",
+      "district": "bologna",
+      "name": "Savena 2",
+      "aliases": [
+        "AFT Savena 2"
+      ],
+      "communes": [
+        "Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=20",
+      "sourcePages": [
+        20
+      ]
+    },
+    {
+      "id": "casalecchio-di-reno",
+      "district": "reno-lavino-samoggia",
+      "name": "Casalecchio di Reno",
+      "aliases": [],
+      "communes": [
+        "Casalecchio di Reno"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "monte-san-pietro-zola-predosa",
+      "district": "reno-lavino-samoggia",
+      "name": "Monte San Pietro - Zola Predosa",
+      "aliases": [],
+      "communes": [
+        "Monte San Pietro",
+        "Zola Predosa"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "sasso-marconi",
+      "district": "reno-lavino-samoggia",
+      "name": "Sasso Marconi",
+      "aliases": [],
+      "communes": [
+        "Sasso Marconi"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "valle-del-samoggia",
+      "district": "reno-lavino-samoggia",
+      "name": "Valsamoggia",
+      "aliases": [
+        "Valle del Samoggia"
+      ],
+      "communes": [
+        "Valsamoggia"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "savena-idice-pianoro-loiano-monghidoro",
+      "district": "savena-idice",
+      "name": "Pianoro - Loiano - Monghidoro",
+      "aliases": [
+        "AFT Pianoro - Loiano - Monghidoro"
+      ],
+      "communes": [
+        "Pianoro",
+        "Loiano",
+        "Monghidoro"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=18",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "savena-idice-monterenzio-ozzano",
+      "district": "savena-idice",
+      "name": "Monterenzio - Ozzano dell’Emilia",
+      "aliases": [
+        "Monterenzio - Ozzano dell'Emilia",
+        "Ozzano dell'Emilia - Monterenzio"
+      ],
+      "communes": [
+        "Monterenzio",
+        "Ozzano dell'Emilia"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=18",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "savena-idice-san-lazzaro",
+      "district": "savena-idice",
+      "name": "San Lazzaro di Savena",
+      "aliases": [
+        "San Lazzaro",
+        "S. Lazzaro di Savena"
+      ],
+      "communes": [
+        "San Lazzaro di Savena"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=18",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "appennino-camugnano-castiglione-san-benedetto",
+      "district": "appennino",
+      "name": "Camugnano - Castiglione dei Pepoli - San Benedetto Val di Sambro",
+      "aliases": [
+        "Camugnano - Castiglione dei Pepoli - S. Benedetto Val di Sambro"
+      ],
+      "communes": [
+        "Camugnano",
+        "Castiglione dei Pepoli",
+        "San Benedetto Val di Sambro"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=19",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "appennino-castel-daiano-grizzana-vergato",
+      "district": "appennino",
+      "name": "Castel d’Aiano - Grizzana Morandi - Vergato",
+      "aliases": [
+        "Castel D'Aiano Grizzana Vergato",
+        "Castel d'Aiano - Grizzana - Vergato"
+      ],
+      "communes": [
+        "Castel d'Aiano",
+        "Grizzana Morandi",
+        "Vergato"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=19",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "appennino-marzabotto-monzuno",
+      "district": "appennino",
+      "name": "Marzabotto - Monzuno",
+      "aliases": [
+        "Marzabotto Monzuno"
+      ],
+      "communes": [
+        "Marzabotto",
+        "Monzuno"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=19",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "appennino-alto-reno-casio-lizzano-gaggio",
+      "district": "appennino",
+      "name": "Alto Reno Terme - Castel di Casio - Lizzano in Belvedere - Gaggio Montano",
+      "aliases": [
+        "Alto Reno Terme, Castel di Casio, Gaggio Montano, Lizzano in Belvedere",
+        "Porretta - Castel di Casio - Granaglione - Lizzano - Gaggio"
+      ],
+      "communes": [
+        "Alto Reno Terme",
+        "Castel di Casio",
+        "Lizzano in Belvedere",
+        "Gaggio Montano"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946#page=19",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
       "id": "argelato-castello-dargile-pieve-di-cento",
       "district": "pianura-est",
-      "name": "Argelato, Castello d’Argile e Pieve di Cento",
-      "label": "AFT/NCP",
+      "name": "Argelato - Castello d’Argile - Pieve di Cento",
+      "aliases": [],
       "communes": [
         "Argelato",
         "Castello d’Argile",
         "Pieve di Cento"
       ],
-      "source": "https://www.ausl.bologna.it/servt/distr/pianura-est/lorganizzazione-del-distretto"
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        19
+      ]
     },
     {
-      "id": "valle-del-samoggia",
-      "district": "reno-lavino-samoggia",
-      "name": "Valle del Samoggia",
-      "label": "NCP/AFT",
-      "communes": []
+      "id": "baricella-minerbio-malalbergo",
+      "district": "pianura-est",
+      "name": "Baricella - Minerbio - Malalbergo",
+      "aliases": [],
+      "communes": [
+        "Baricella",
+        "Minerbio",
+        "Malalbergo"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "san-giorgio-di-piano-san-pietro-in-casale-galliera",
+      "district": "pianura-est",
+      "name": "San Giorgio di Piano - San Pietro in Casale - Galliera",
+      "aliases": [],
+      "communes": [
+        "San Giorgio di Piano",
+        "San Pietro in Casale",
+        "Galliera"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "bentivoglio-castel-maggiore",
+      "district": "pianura-est",
+      "name": "Bentivoglio - Castel Maggiore",
+      "aliases": [],
+      "communes": [
+        "Bentivoglio",
+        "Castel Maggiore"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "castenaso-granarolo-dellemilia",
+      "district": "pianura-est",
+      "name": "Castenaso - Granarolo dell’Emilia",
+      "aliases": [],
+      "communes": [
+        "Castenaso",
+        "Granarolo dell’Emilia"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "budrio-molinella",
+      "district": "pianura-est",
+      "name": "Budrio - Molinella",
+      "aliases": [],
+      "communes": [
+        "Budrio",
+        "Molinella"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        19
+      ]
+    },
+    {
+      "id": "calderara-anzola-sala-bolognese",
+      "district": "pianura-ovest",
+      "name": "Calderara - Anzola - Sala Bolognese",
+      "aliases": [
+        "Calderara di Reno - Anzola dell’Emilia - Sala Bolognese"
+      ],
+      "communes": [
+        "Calderara di Reno",
+        "Anzola dell’Emilia",
+        "Sala Bolognese"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "san-giovanni-in-persiceto",
+      "district": "pianura-ovest",
+      "name": "San Giovanni in Persiceto",
+      "aliases": [],
+      "communes": [
+        "San Giovanni in Persiceto"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "crevalcore-santagata-bolognese",
+      "district": "pianura-ovest",
+      "name": "Crevalcore - Sant’Agata Bolognese",
+      "aliases": [],
+      "communes": [
+        "Crevalcore",
+        "Sant’Agata Bolognese"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "castel-san-pietro-dozza",
+      "district": "imola",
+      "name": "Castel San Pietro - Dozza",
+      "aliases": [
+        "AFT Castel San Pietro Terme-Dozza",
+        "Castel S. Pietro - Dozza"
+      ],
+      "communes": [
+        "Castel San Pietro Terme",
+        "Dozza"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "medicina-castel-guelfo",
+      "district": "imola",
+      "name": "Medicina Castel Guelfo",
+      "aliases": [
+        "AFT Medicina-Castel Guelfo",
+        "Medicina - Castel Guelfo"
+      ],
+      "communes": [
+        "Medicina",
+        "Castel Guelfo di Bologna"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "imola-nord-mordano",
+      "district": "imola",
+      "name": "Imola Nord e Mordano",
+      "aliases": [
+        "AFT Imola Nord-Mordano",
+        "Imola Nord - Mordano"
+      ],
+      "communes": [
+        "Imola",
+        "Mordano"
+      ],
+      "label": "AFT",
+      "areas": [
+        "Campanella",
+        "Marconi",
+        "Zona Industriale",
+        "Zolino",
+        "San Prospero",
+        "Sasso Morelli",
+        "Sesto Imolese"
+      ],
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "imola-centro-sud",
+      "district": "imola",
+      "name": "Imola Centro e Sud",
+      "aliases": [
+        "AFT Imola Centro Sud"
+      ],
+      "communes": [
+        "Imola"
+      ],
+      "label": "AFT",
+      "areas": [
+        "Centro",
+        "Cappuccini",
+        "Ponticelli",
+        "Pedagna",
+        "Tre Monti-Zello"
+      ],
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "vallata-santerno",
+      "district": "imola",
+      "name": "Vallata del Santerno",
+      "aliases": [
+        "AFT Vallata del Santerno"
+      ],
+      "communes": [
+        "Casalfiumanese",
+        "Borgo Tossignano",
+        "Fontanelice",
+        "Castel del Rio"
+      ],
+      "label": "AFT",
+      "source": "https://bur.regione.emilia-romagna.it/area-bollettini/luglio-periodico-parte-seconda-1a-quindicina-primo-fascicolo/atto-di-aggiornamento-della-programmazione-regionale-per-la-istituzione-e-attuazione-delle-aggregazioni-funzionali-territoriali-della-medicina-generale-aft/dgr-660-2025-allegato_atto-agg-2026-06-15-1781512946",
+      "sourcePages": [
+        21
+      ]
     }
-  ]
+  ],
+  "coalition": {
+    "name": "SMI–SNAMI",
+    "title": "Una candidatura condivisa per ogni AFT",
+    "description": "SMI e SNAMI uniscono le forze per presentare un candidato condiviso in ogni AFT. L’obiettivo è coordinare il voto e concentrare le preferenze su un’unica candidatura, evitando di disperderle. I nominativi vengono pubblicati progressivamente, dopo la conferma delle candidature."
+  },
+  "aftRegistry": {
+    "complete": true,
+    "scope": "AFT della medicina generale delle AUSL di Bologna e Imola",
+    "sourceUrl": "https://bur.regione.emilia-romagna.it/dettaglio-inserzione?i=b76e2953137b4994a25b3e7358967661",
+    "sourceTitle": "DGR Emilia-Romagna 660 del 4 maggio 2026 · allegato, §§ 4.5–4.6, pagine 18–21",
+    "actDate": "2026-05-04",
+    "publishedOn": "2026-07-01",
+    "consultedOn": "2026-11-02",
+    "districts": [
+      "bologna",
+      "reno-lavino-samoggia",
+      "savena-idice",
+      "appennino",
+      "pianura-est",
+      "pianura-ovest",
+      "imola"
+    ],
+    "total": 37
+  }
 }

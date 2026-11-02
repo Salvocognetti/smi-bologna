@@ -24,6 +24,47 @@ const districtName = d => d.id === 'bologna' ? 'Città di Bologna' : d.name;
 const joinSection = () => `<section class="join-section"><div class="container join-inner"><div><h2>Fai parte di SMI.</h2><p>Iscriviti al Sindacato Medici Italiani dal portale nazionale.</p></div><a class="button button-red" href="${JOIN}" target="_blank" rel="noopener noreferrer">UNISCITI A NOI! <span aria-hidden="true">↗</span></a></div></section>`;
 const breadcrumb = label => `<div class="breadcrumb"><a href="#/">Home</a><span aria-hidden="true">/</span><span>${esc(label)}</span></div>`;
 
+
+const coalitionName = () => content.coalition?.name || 'SMI–SNAMI';
+const districtAfts = id => (content.afts||[]).filter(a=>a.district===id);
+const districtCandidates = id => content.candidates.filter(p=>p.district===id&&String(p.name||'').trim());
+const aftCoverage = id => ({total:districtAfts(id).length,published:districtCandidates(id).length});
+const coverageText = id => {
+  const n=aftCoverage(id);
+  return n.total?`${n.published} / ${n.total} ${n.published===1?'candidato pubblicato':'candidati pubblicati'}`:'Elenco AFT da integrare';
+};
+
+function coalitionNotice(mode='page') {
+  const c=content.coalition||{};
+  const tag=mode==='district'?'h3':'h2';
+  return `<aside class="coalition-notice coalition-notice--${mode}" aria-label="Alleanza elettorale ${esc(coalitionName())}"><p class="coalition-kicker">Elezioni dei referenti AFT · ${esc(coalitionName())}</p><${tag}>${esc(c.title||'Un candidato condiviso per ogni AFT.')}</${tag}><p class="coalition-description">${esc(c.description||'SMI e SNAMI coordinano le candidature per presentare un candidato condiviso per ogni AFT, coordinare il voto ed evitare la dispersione delle preferenze.')}</p></aside>`;
+}
+
+function registryDate(value) {
+  if(!value)return '';
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return String(value);
+  const parsed=new Date(`${value}T12:00:00Z`);
+  return Number.isNaN(parsed.getTime())?String(value):new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',year:'numeric',timeZone:'Europe/Rome'}).format(parsed);
+}
+
+function registrySource() {
+  const r=content.aftRegistry;
+  if(!r?.sourceUrl)return '';
+  const dates=[r.actDate?`Atto del ${registryDate(r.actDate)}`:'',r.publishedOn?`pubblicato il ${registryDate(r.publishedOn)}`:'',r.consultedOn?`consultato il ${registryDate(r.consultedOn)}`:''].filter(Boolean);
+  return `<div class="aft-registry-source"><p>Fonte territoriale: <a href="${esc(r.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(r.sourceTitle||'Programmazione regionale delle AFT')} <span aria-hidden="true">↗</span></a></p>${dates.length?`<p class="aft-registry-dates">${dates.map(esc).join(' · ')}</p>`:''}</div>`;
+}
+
+function registryNotice(d) {
+  const complete=content.aftRegistry?.complete&&districtAfts(d.id).length>0;
+  return `<div class="aft-list-notice"><p>${complete?'L’elenco territoriale delle AFT di questo distretto è tratto dalla programmazione regionale ufficiale.':'L’elenco delle AFT di questo territorio è in aggiornamento.'} I nominativi e i profili dei candidati sono aggiornati progressivamente.</p>${complete?registrySource():''}</div>`;
+}
+
+function districtCoverage(d) {
+  const n=aftCoverage(d.id);
+  if(!n.total)return '<p class="aft-coverage-pending">Elenco AFT da integrare per questo territorio.</p>';
+  return `<div class="aft-coverage" aria-label="${n.published} ${n.published===1?'candidato pubblicato':'candidati pubblicati'} per ${n.total} AFT"><strong>${n.published}<span aria-hidden="true"> / </span>${n.total}</strong><p><span>Candidature pubblicate</span>Un candidato condiviso per ogni AFT.</p></div>`;
+}
+
 function photoTag(id, cls='', eager=false) {
   const p=photoCredit(id);
   return `<img src="${photo(id)}" alt="${esc(p.location || p.title || 'Paesaggio del territorio bolognese')}" ${cls?`class="${cls}"`:''} ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
@@ -40,13 +81,14 @@ function homePage() {
     </div>
     <div class="hero-bottom"><span class="hero-location">${icons.pin} Bologna, uno sguardo sulla città</span><a class="hero-scroll" href="#/#territorio">IL TERRITORIO, DA VICINO <i aria-hidden="true">↓</i></a></div>
   </section>
-  <div class="container intro-band"><div class="band-heading">${icons.ballot}<div><strong>Elezioni dei referenti AFT</strong><span>Uno spazio dedicato alle candidature SMI.</span></div></div><p>Le candidature, organizzate per AFT e distretto,<br>in un unico punto di riferimento.</p><a href="#/elezioni" class="text-link">Vai alle elezioni <span aria-hidden="true">↗</span></a></div>
+  <div class="container intro-band"><div class="band-heading">${icons.ballot}<div><strong>Elezioni dei referenti AFT</strong><span>Le candidature condivise SMI–SNAMI.</span></div></div><p>Le candidature, organizzate per AFT e distretto,<br>in un unico punto di riferimento.</p><a href="#/elezioni" class="text-link">Vai alle elezioni <span aria-hidden="true">↗</span></a></div>
+  <section class="container coalition-home">${coalitionNotice('home')}</section>
   <section class="container territory" id="territorio"><div class="section-heading"><div><p class="eyebrow">Una mappa, tanti territori</p><h2>Trova il tuo distretto.</h2></div><p>Esplora la mappa per trovare i rappresentanti sindacali e le candidature AFT del tuo territorio.</p></div>
     <div class="map-toolbar"><p class="map-hint">${icons.pin} Seleziona un distretto per conoscerlo</p><div class="view-toggle" aria-label="Visualizzazione del territorio"><button data-view="map" aria-pressed="true">${icons.map} Mappa</button><button data-view="list" aria-pressed="false">${icons.list} Elenco</button></div></div>
     <div class="map-experience"><div class="map-stage" id="map-stage"><div class="map-compass"><span aria-hidden="true">↑</span> N</div>${mapSvg()}<div class="map-legend"><span><i></i> AUSL di Bologna</span><span><i></i> AUSL di Imola</span></div></div><div class="district-preview" id="district-preview" aria-live="polite"></div><div class="district-list" id="district-list" hidden>${geography.districts.map(listItem).join('')}</div></div>
     <p class="map-source">Sei distretti dell’AUSL di Bologna e il territorio dell’AUSL di Imola. I distretti comprendono più AFT. <a href="#/crediti">Fonti della mappa ↗</a></p>
   </section>
-  <section class="election-section"><div class="container election-inner"><div><p class="eyebrow">Elezioni AFT</p><h2>Le persone.<br>Prima di tutto.</h2></div><div class="election-copy"><p>Uno spazio per conoscere i medici candidati da SMI al ruolo di referente AFT. Consulta le candidature disponibili, organizzate per AFT e distretto. Le schede vengono completate con le informazioni dei candidati.</p><a href="#/elezioni" class="text-link">Scopri la sezione elezioni <span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="election-section"><div class="container election-inner"><div><p class="eyebrow">Elezioni AFT</p><h2>Le persone.<br>Prima di tutto.</h2></div><div class="election-copy"><p>Le candidature condivise da SMI e SNAMI, organizzate per AFT e distretto. Un solo candidato per ogni AFT, per coordinare il voto ed evitare la dispersione delle preferenze. I profili vengono completati progressivamente.</p><a href="#/elezioni" class="text-link">Scopri la sezione elezioni <span aria-hidden="true">↗</span></a></div></div></section>
   <section class="container archive-teaser"><div class="archive-icon">${icons.book}</div><div><p class="eyebrow">Archivio SMI</p><h2>La norma giusta,<br><em>quando serve.</em></h2></div><div><p>Lo spazio dedicato ad accordi, normativa e giurisprudenza è in preparazione.</p><a href="#/archivio" class="text-link">Scopri l’archivio <span aria-hidden="true">→</span></a></div></section>${joinSection()}`;
   renderDistrictPreview();
   wireMap();
@@ -63,12 +105,11 @@ function listItem(d) {
 
 function renderDistrictPreview() {
   const d=district(selectedDistrict), p=photoCredit(d.id);
-  const candidateCount=content.candidates.filter(c=>c.district===d.id).length;
   const repCount=content.representatives.filter(c=>c.district===d.id).length;
   const el=document.querySelector('#district-preview');
   if(!el)return;
   el.classList.remove('changing');
-  el.innerHTML=`<div class="preview-photo">${photoTag(d.id)}<span class="photo-caption">${esc(p.location||'')}</span></div><div class="preview-content"><p class="mini-label">${esc(d.ausl)} · ${d.communeCount} ${d.communeCount===1?'comune':'comuni'}</p><h3>${esc(d.name)}</h3><p class="preview-status"><span class="status-dot"></span>${repCount?`${repCount} rappresentanti sindacali`:'Rappresentanti · in aggiornamento'}</p><p class="preview-status"><span class="status-dot"></span>${candidateCount?`${candidateCount} ${candidateCount===1?'candidatura AFT':'candidature AFT'}`:'Candidature AFT · in aggiornamento'}</p><a class="text-link" href="${districtUrl(d.id)}">Esplora il distretto <span aria-hidden="true">↗</span></a></div>`;
+  el.innerHTML=`<div class="preview-photo">${photoTag(d.id)}<span class="photo-caption">${esc(p.location||'')}</span></div><div class="preview-content"><p class="mini-label">${esc(d.ausl)} · ${d.communeCount} ${d.communeCount===1?'comune':'comuni'}</p><h3>${esc(d.name)}</h3><p class="preview-status"><span class="status-dot"></span>${repCount?`${repCount} rappresentanti sindacali`:'Rappresentanti · in aggiornamento'}</p><p class="preview-status"><span class="status-dot"></span>${esc(coverageText(d.id))}</p><a class="text-link" href="${districtUrl(d.id)}">Esplora il distretto <span aria-hidden="true">↗</span></a></div>`;
   void el.offsetWidth;el.classList.add('changing');
 }
 
@@ -115,46 +156,51 @@ function districtPage(id, tab='rappresentanti') {
 
 function renderDistrictPanel(d, tab) {
   const isCandidates=tab==='candidature';
-  const records=(isCandidates?content.candidates:content.representatives).filter(p=>p.district===d.id);
+  const records=isCandidates?districtCandidates(d.id):content.representatives.filter(p=>p.district===d.id);
   const el=document.querySelector('#district-panel');
   el.setAttribute('aria-labelledby',isCandidates?'tab-candidates':'tab-reps');
   const cards=isCandidates?aftCandidateGroups(d,records):records.map(p=>personCard(p,false)).join('');
-  el.innerHTML=`<h2>${isCandidates?'Le candidature SMI.':'I tuoi riferimenti SMI.'}</h2><p>${isCandidates?'I medici candidati al ruolo di referente AFT, suddivisi per aggregazione funzionale territoriale.':'I riferimenti sindacali SMI per i medici del distretto.'}</p>${cards||`<div class="empty-state"><div class="empty-icon">${isCandidates?icons.check:icons.people}</div><div><h3>${isCandidates?'Le candidature stanno arrivando.':'I riferimenti saranno disponibili qui.'}</h3><p>${isCandidates?'Le candidature per questo distretto saranno disponibili qui, con l’AFT di riferimento e la presentazione di ciascun medico.':'Questa sezione accoglierà i nominativi, gli incarichi e i contatti dei rappresentanti sindacali, dopo la loro conferma.'}</p><span class="status-label"><i class="status-dot"></i> Contenuti in aggiornamento</span></div></div>`}${isCandidates?'<p class="aft-list-notice">L’elenco delle AFT del distretto è in aggiornamento. Sono riportate le aggregazioni per le quali sono già disponibili informazioni.</p>':''}`;
+  el.innerHTML=`<h2>${isCandidates?'Le candidature condivise.':'I tuoi riferimenti SMI.'}</h2><p>${isCandidates?'Un candidato condiviso da SMI e SNAMI per ogni aggregazione funzionale territoriale.':'I riferimenti sindacali SMI per i medici del distretto.'}</p>${isCandidates?coalitionNotice('district')+districtCoverage(d):''}${cards||`<div class="empty-state"><div class="empty-icon">${isCandidates?icons.check:icons.people}</div><div><h3>${isCandidates?'Le candidature stanno arrivando.':'I riferimenti saranno disponibili qui.'}</h3><p>${isCandidates?'Le candidature per questo distretto saranno disponibili qui, con l’AFT di riferimento e la presentazione di ciascun medico.':'Questa sezione accoglierà i nominativi, gli incarichi e i contatti dei rappresentanti sindacali, dopo la loro conferma.'}</p><span class="status-label"><i class="status-dot"></i> Contenuti in aggiornamento</span></div></div>`}${isCandidates?registryNotice(d):''}`;
 }
 
 function aftCandidateGroups(d, records) {
-  const known=(content.afts||[]).filter(a=>a.district===d.id);
+  const known=districtAfts(d.id);
   const groups=new Map(known.map(a=>[a.id,{...a,candidates:[]}]));
   records.forEach(p=>{
     const key=p.aftId||p.aft||'aft-in-aggiornamento';
     if(!groups.has(key))groups.set(key,{id:key,name:p.aft||'AFT in aggiornamento',label:'AFT',candidates:[]});
     groups.get(key).candidates.push(p);
   });
-  return [...groups.values()].map(a=>`<section class="aft-candidate-group" aria-labelledby="aft-${esc(a.id)}"><header class="aft-group-heading"><span class="mini-label">${esc(a.label||'AFT')}</span><h3 id="aft-${esc(a.id)}">${esc(a.name)}</h3>${a.communes?.length?`<p>${a.communes.map(esc).join(' · ')}</p>`:''}</header><div class="candidate-list">${a.candidates.length?a.candidates.map(p=>personCard(p,true)).join(''):'<p class="candidate-pending">Candidature in aggiornamento.</p>'}</div></section>`).join('');
+  return [...groups.values()].map(a=>`<section class="aft-candidate-group" aria-labelledby="aft-${esc(a.id)}"><header class="aft-group-heading"><span class="mini-label">${esc(a.label||'AFT')}</span><h3 id="aft-${esc(a.id)}">${esc(a.name)}</h3>${a.communes?.length?`<p>${a.communes.map(esc).join(' · ')}</p>`:''}${a.areas?.length?`<p class="aft-areas"><span>Ambito territoriale:</span> ${a.areas.map(esc).join(' · ')}</p>`:''}</header><div class="candidate-list">${a.candidates.length?a.candidates.map(p=>personCard(p,true)).join(''):candidateSlot(a)}</div></section>`).join('');
+}
+
+
+function candidateSlot(a) {
+  return `<article class="candidate-slot" aria-label="Candidato da comunicare per ${esc(a.name)}"><div class="candidate-slot-icon">${icons.people}</div><div><p class="candidate-slot-kicker">Candidatura condivisa ${esc(coalitionName())}</p><h4>Candidato da comunicare</h4><p>Il nominativo del candidato condiviso sarà pubblicato dopo la conferma.</p></div></article>`;
 }
 
 function personCard(p,candidate) {
   if(!candidate)return `<article class="empty-state">${p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.name)}" width="64" height="64" loading="lazy">`:`<div class="empty-icon">${icons.people}</div>`}<div><span class="mini-label">${esc(p.role)}</span><h3>${esc(p.name)}</h3><p>${esc(p.bio||'')}</p>${p.email?`<a class="text-link" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:''}</div></article>`;
   const paragraphs=String(p.bio||'').split(/\n\s*\n/).filter(t=>t.trim());
   const portrait=p.photo?`<img class="candidate-portrait" src="${esc(p.photo)}" alt="${esc(p.name)}" width="180" height="225" loading="lazy" decoding="async">`:`<div class="candidate-photo-placeholder">${icons.people}<span>Foto in arrivo</span></div>`;
-  return `<article class="candidate-card"><div class="candidate-overview"><div class="candidate-photo">${portrait}</div><div class="candidate-identity"><span class="candidate-label">Candidatura SMI · referente AFT</span><h4>${esc(p.name)}</h4><p class="candidate-profession">${esc(p.role||'Medico di medicina generale')}</p>${p.practiceLocation?`<p class="candidate-location">${icons.pin}<span>${esc(p.practiceLocation)}</span></p>`:''}${p.profilePending?'<span class="candidate-profile-status">Profilo in aggiornamento</span>':''}</div></div>${paragraphs.length?`<div class="candidate-statement">${paragraphs.map(t=>`<p>${esc(t.trim())}</p>`).join('')}</div>`:p.profilePending?'<p class="candidate-pending">La presentazione del candidato sarà disponibile prossimamente.</p>':''}${p.email?`<a class="text-link candidate-contact" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:''}</article>`;
+  return `<article class="candidate-card"><div class="candidate-overview"><div class="candidate-photo">${portrait}</div><div class="candidate-identity"><span class="candidate-label">Candidatura condivisa ${esc(coalitionName())}</span><h4>${esc(p.name)}</h4><p class="candidate-profession">${esc(p.role||'Medico di medicina generale')}</p>${p.practiceLocation?`<p class="candidate-location">${icons.pin}<span>${esc(p.practiceLocation)}</span></p>`:''}${p.profilePending?'<span class="candidate-profile-status">Profilo in aggiornamento</span>':''}</div></div>${paragraphs.length?`<div class="candidate-statement">${paragraphs.map(t=>`<p>${esc(t.trim())}</p>`).join('')}</div>`:p.profilePending?'<p class="candidate-pending">La presentazione del candidato sarà disponibile prossimamente.</p>':''}${p.email?`<a class="text-link candidate-contact" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:''}</article>`;
 }
 
 function electionsPage() {
   document.title='Elezioni dei referenti AFT — SMI Bologna';
-  main.innerHTML=`<section class="container page-header">${breadcrumb('Elezioni AFT')}<p class="eyebrow">Elezioni dei referenti AFT</p><h1>Le candidature SMI.<br><em>AFT per AFT.</em></h1><p class="lead">Tutti i riferimenti per conoscere i candidati al ruolo di referente AFT nel tuo territorio.</p></section><section class="container elections-content"><div class="election-note">${esc(content.electionNotice)}</div><div class="filter-bar"><label for="district-search">Cerca territorio o candidato<input id="district-search" type="search" placeholder="Distretto, comune, AFT o candidato…" autocomplete="off"></label><label for="ausl-filter">Azienda sanitaria<select id="ausl-filter"><option value="all">Tutte le aziende sanitarie</option><option value="AUSL di Bologna">AUSL di Bologna</option><option value="AUSL di Imola">AUSL di Imola</option></select></label></div><div class="election-grid" id="election-grid" aria-live="polite"></div><p class="notice-small">Ogni distretto comprende più AFT. L’elenco delle aggregazioni e delle candidature è in aggiornamento. Date e modalità di voto saranno riportate quando confermate.</p></section>${joinSection()}`;
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Elezioni AFT')}<p class="eyebrow">Elezioni dei referenti AFT</p><h1>Le candidature condivise.<br><em>AFT per AFT.</em></h1><p class="lead">Tutti i riferimenti per conoscere i candidati al ruolo di referente AFT nel tuo territorio.</p></section><section class="container elections-content">${coalitionNotice()}<div class="election-note">${esc(content.electionNotice)}</div><div class="filter-bar"><label for="district-search">Cerca territorio o candidato<input id="district-search" type="search" placeholder="Distretto, comune, AFT o candidato…" autocomplete="off"></label><label for="ausl-filter">Azienda sanitaria<select id="ausl-filter"><option value="all">Tutte le aziende sanitarie</option><option value="AUSL di Bologna">AUSL di Bologna</option><option value="AUSL di Imola">AUSL di Imola</option></select></label></div><div class="election-grid" id="election-grid" aria-live="polite"></div><p class="notice-small">Le AFT sono organizzate per distretto secondo la fonte territoriale indicata. Le candidature condivise e i profili sono aggiornati progressivamente. Date e modalità di voto saranno riportate quando confermate.</p>${registrySource()}</section>${joinSection()}`;
   const draw=()=>{
     const q=document.querySelector('#district-search').value.trim().toLocaleLowerCase('it');
     const ausl=document.querySelector('#ausl-filter').value;
     const ds=geography.districts.filter(d=>{
       const people=content.candidates.filter(c=>c.district===d.id);
       const afts=(content.afts||[]).filter(a=>a.district===d.id);
-      const searchable=[d.name,...d.communes,...afts.flatMap(a=>[a.name,...(a.communes||[])]),...people.flatMap(c=>[c.name,c.aft,c.practiceLocation])].filter(Boolean).join(' ').toLocaleLowerCase('it');
+      const searchable=[d.name,...d.communes,...afts.flatMap(a=>[a.name,...(a.aliases||[]),...(a.communes||[]),...(a.areas||[])]),...people.flatMap(c=>[c.name,c.aft,c.practiceLocation])].filter(Boolean).join(' ').toLocaleLowerCase('it');
       return (ausl==='all'||d.ausl===ausl)&&searchable.includes(q);
     });
     document.querySelector('#election-grid').innerHTML=ds.length?ds.map(d=>{
-      const n=content.candidates.filter(c=>c.district===d.id).length;
-      return `<a href="${districtUrl(d.id)}/candidature" class="election-card">${photoTag(d.id)}<div class="election-card-body"><span class="mini-label">${esc(d.ausl)}</span><h2>${esc(d.name)}</h2><p>${n?`${n} ${n===1?'candidatura pubblicata':'candidature pubblicate'}.`:'Candidature in aggiornamento.'}</p><span class="text-link">Vai alle candidature <span aria-hidden="true">↗</span></span></div></a>`;
+      const n=aftCoverage(d.id);
+      return `<a href="${districtUrl(d.id)}/candidature" class="election-card">${photoTag(d.id)}<div class="election-card-body"><span class="mini-label">${esc(d.ausl)}</span><h2>${esc(d.name)}</h2><p class="election-card-coverage">${n.total?`<strong>${n.published} / ${n.total}</strong><span>${n.published===1?'candidato pubblicato':'candidati pubblicati'} · ${n.total} AFT</span>`:'Elenco AFT da integrare.'}</p><span class="text-link">Vai alle candidature <span aria-hidden="true">↗</span></span></div></a>`;
     }).join(''):'<p class="no-results">Nessun distretto trovato. Prova con un altro comune o modifica il filtro.</p>';
   };
   document.querySelector('#district-search').addEventListener('input',draw);
@@ -191,7 +237,7 @@ function bolognaCommitmentPage() {
 
 function creditsPage() {
   document.title='Fonti e crediti — SMI Bologna';
-  main.innerHTML=`<section class="container page-header">${breadcrumb('Fonti e crediti')}<p class="eyebrow">Fonti e crediti</p><h1>I luoghi, le fonti,<br><em>le immagini.</em></h1></section><section class="container credits-content"><h2>La mappa del territorio</h2><p>Confini © ISTAT, da <a href="https://github.com/guglielmo/geojson-italy" target="_blank" rel="noopener noreferrer">geojson-italy</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>). Confini comunali 2026 aggregati e semplificati per la visualizzazione. La mappa è uno strumento di navigazione del sito.</p><p>Composizione dei distretti: <a href="https://www.ausl.bologna.it/servt/distr" target="_blank" rel="noopener noreferrer">AUSL di Bologna — Distretti</a>; <a href="https://www.nuovocircondarioimolese.it/siti-tematici/usep/governance" target="_blank" rel="noopener noreferrer">Nuovo Circondario Imolese</a>. Imola è rappresentata come territorio di un’azienda sanitaria distinta.</p><h2>Fotografie</h2><p>Fotografie dei luoghi reali del territorio. Le immagini sono state ridimensionate e convertite in WebP; la visualizzazione può prevedere ritagli.</p>${credits.map(p=>`<div class="credit-photo">${photoTag(p.id)}<div><strong>${esc(p.location||p.title)}</strong><p>${esc(p.author)} · <a href="${esc(p.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(p.license)}</a><br><a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a></p></div></div>`).join('')}<h2>Identità visiva</h2><p>Il marchio SMI — Sindacato Medici Italiani proviene dal <a href="https://sindacatomedicitaliani.it/" target="_blank" rel="noopener noreferrer">sito nazionale ufficiale</a>. I caratteri Manrope, DM Sans e Playfair Display sono distribuiti con licenza SIL Open Font License.</p><h2>Stato dei contenuti</h2><p>Questa è un’anteprima del sito. Le candidature disponibili sono organizzate per distretto e AFT. L’elenco delle aggregazioni e i profili dei candidati sono in aggiornamento; gli incarichi e i contatti dei rappresentanti saranno inseriti dopo la loro conferma. L’archivio documentale non è ancora consultabile.</p></section>`;
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Fonti e crediti')}<p class="eyebrow">Fonti e crediti</p><h1>I luoghi, le fonti,<br><em>le immagini.</em></h1></section><section class="container credits-content"><h2>La mappa del territorio</h2><p>Confini © ISTAT, da <a href="https://github.com/guglielmo/geojson-italy" target="_blank" rel="noopener noreferrer">geojson-italy</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>). Confini comunali 2026 aggregati e semplificati per la visualizzazione. La mappa è uno strumento di navigazione del sito.</p><p>Composizione dei distretti: <a href="https://www.ausl.bologna.it/servt/distr" target="_blank" rel="noopener noreferrer">AUSL di Bologna — Distretti</a>; <a href="https://www.nuovocircondarioimolese.it/siti-tematici/usep/governance" target="_blank" rel="noopener noreferrer">Nuovo Circondario Imolese</a>. Imola è rappresentata come territorio di un’azienda sanitaria distinta.</p><h2>Programmazione territoriale delle AFT</h2><p>${content.aftRegistry?.complete?'L’elenco delle AFT è tratto dall’atto di programmazione regionale indicato di seguito.':'L’elenco territoriale delle AFT è in aggiornamento.'} Questa fonte descrive l’organizzazione territoriale; i nominativi dei candidati sono comunicati separatamente e vengono aggiornati progressivamente.</p>${registrySource()}<h2>Fotografie</h2><p>Fotografie dei luoghi reali del territorio. Le immagini sono state ridimensionate e convertite in WebP; la visualizzazione può prevedere ritagli.</p>${credits.map(p=>`<div class="credit-photo">${photoTag(p.id)}<div><strong>${esc(p.location||p.title)}</strong><p>${esc(p.author)} · <a href="${esc(p.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(p.license)}</a><br><a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a></p></div></div>`).join('')}<h2>Identità visiva</h2><p>Il marchio SMI — Sindacato Medici Italiani proviene dal <a href="https://sindacatomedicitaliani.it/" target="_blank" rel="noopener noreferrer">sito nazionale ufficiale</a>. I caratteri Manrope, DM Sans e Playfair Display sono distribuiti con licenza SIL Open Font License.</p><h2>Stato dei contenuti</h2><p>Questa è un’anteprima del sito. Le candidature condivise SMI–SNAMI sono organizzate per distretto e AFT. I nominativi e i profili dei candidati sono aggiornati progressivamente; gli incarichi e i contatti dei rappresentanti saranno inseriti dopo la loro conferma. L’archivio documentale non è ancora consultabile.</p></section>`;
 }
 
 function notFound() {
@@ -244,7 +290,7 @@ function route() {
 
 async function init() {
   try {
-    [geography,content,credits]=await Promise.all(['./assets/district-map.json','./content.json?v=20261101-candidati','./assets/photo-credits.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
+    [geography,content,credits]=await Promise.all(['./assets/district-map.json','./content.json?v=20261102-alleanza-aft','./assets/photo-credits.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
     document.querySelector('#year').textContent=new Date().getFullYear();
     route();
     window.addEventListener('hashchange',route);

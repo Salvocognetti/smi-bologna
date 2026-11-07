@@ -1,0 +1,63 @@
+{
+  "updatedOn": "2026-11-07",
+  "title": "Referente AFT: ruolo ed elezioni",
+  "intro": "Una guida per i medici: che cosa fa il Referente, come viene scelto e quali informazioni controllare prima del voto.",
+  "about": "L’AFT, Aggregazione Funzionale Territoriale, riunisce i medici di medicina generale di uno stesso territorio per condividere obiettivi, percorsi assistenziali e strumenti di lavoro. Il Referente è il collega che ne coordina le attività e il raccordo con l’Azienda e il Distretto.",
+  "duties": [
+    { "title": "Riunioni e confronto", "text": "Convoca e presiede almeno ogni trimestre le riunioni cliniche e organizzative; ne trasmette i verbali al Dipartimento di Cure Primarie." },
+    { "title": "Organizzazione dell’assistenza", "text": "Coordina le attività dei medici, la continuità assistenziale e il raccordo con i servizi aziendali e le altre AFT." },
+    { "title": "Obiettivi e miglioramento", "text": "Monitora l’attività con dati aggregati e anonimi; prepara il piano di miglioramento e la relazione annuale." },
+    { "title": "Collegamento con l’Azienda", "text": "Tiene il raccordo con Distretto, Dipartimento di Cure Primarie e Casa della Comunità e trasmette ai colleghi le comunicazioni aziendali." },
+    { "title": "Percorsi e prevenzione", "text": "Favorisce la formazione e il lavoro comune su cronicità, prevenzione, vaccinazioni e screening." },
+    { "title": "Responsabilità definite", "text": "Il coordinamento mantiene le responsabilità dei singoli medici. L’incarico non autorizza a sottoscrivere accordi con l’Azienda o il Distretto." }
+  ],
+  "rules": [
+    { "title": "Chi sceglie il Referente", "text": "Sono i medici appartenenti all’AFT a eleggere al proprio interno il Referente. La partecipazione riguarda i componenti dell’AFT, secondo gli elenchi e le istruzioni aziendali.", "source": "air", "reference": "Allegato 2, art. 5" },
+    { "title": "Referente e sostituto", "text": "La candidatura al ruolo di Referente è presentata insieme a quella del proprio sostituto. Entrambi devono poter garantire continuità alla funzione.", "source": "air", "reference": "Art. 7; comunicazione NCP" },
+    { "title": "Requisiti comunicati ai medici", "text": "La comunicazione NCP indica la priorità per i medici RUAP a tempo indeterminato e, in assenza di loro candidature, la possibilità per i RUAP a tempo determinato. I requisiti operativi vanno verificati nell’avviso aziendale.", "source": "comunicazione-ncp", "reference": "Comunicazione locale" },
+    { "title": "Continuità del mandato", "text": "Non sono candidabili i medici per i quali sia prevedibile il pensionamento prima della scadenza naturale del mandato.", "source": "air", "reference": "Art. 7" },
+    { "title": "Voto e parità", "text": "Il modello di regolamento regionale prevede l’elezione a maggioranza da parte dei medici dell’AFT. In caso di parità prevale la maggiore anzianità di convenzionamento. Per quorum e modalità di espressione del voto occorre fare riferimento al regolamento e all’avviso aziendale.", "source": "air", "reference": "Allegato 2, art. 5" },
+    { "title": "Durata e nomina", "text": "Il mandato dura tre anni. La designazione è ratificata dall’Azienda. Le condizioni di rinnovo vanno lette nel regolamento aziendale applicabile.", "source": "air", "reference": "Art. 7 e Allegato 2, art. 5" }
+  ],
+  "calendar": {
+    "scope": "AUSL di Bologna",
+    "year": 2026,
+    "source": "comunicazione-ncp",
+    "notice": "Calendario riportato nella comunicazione del Referente NCP. Per eventuali variazioni e per le istruzioni operative fa fede l’avviso dell’AUSL. Le date non sono estese automaticamente all’AUSL di Imola.",
+    "events": [
+      { "date": "2026-11-04", "label": "4 novembre", "title": "Presentazione delle candidature", "text": "Termine indicato per presentare la candidatura del Referente insieme al sostituto." },
+      { "date": "2026-11-08", "label": "8 novembre", "title": "Comunicazione dei candidati", "text": "Data prevista dal calendario per la comunicazione dei nominativi." },
+      { "date": "2026-11-18", "endDate": "2026-11-19", "label": "18–19 novembre", "title": "Votazioni", "text": "Sede, orari e istruzioni del proprio seggio devono essere verificati nella convocazione aziendale.", "featured": true },
+      { "date": "2026-11-20", "label": "20 novembre", "title": "Spoglio delle schede", "text": "Conteggio dei voti secondo le modalità stabilite dall’Azienda." },
+      { "date": "2026-11-30", "label": "30 novembre", "title": "Nomina dei Referenti", "text": "Data prevista per la nomina dei Referenti." }
+    ]
+  },
+  "voting": {
+    "checkedOn": "2026-11-07",
+    "notice": "Gli indirizzi e gli orari dei seggi non sono ancora confermati in questa guida. Controlla la convocazione o la PEC dell’AUSL prima di recarti a votare. Le sedi degli ambulatori AFT non identificano automaticamente i seggi elettorali.",
+    "districts": [
+      { "district": "bologna", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null },
+      { "district": "reno-lavino-samoggia", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null },
+      { "district": "savena-idice", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null },
+      { "district": "appennino", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null },
+      { "district": "pianura-est", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null },
+      { "district": "pianura-ovest", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null },
+      { "district": "imola", "status": "pending", "venue": null, "address": null, "sessions": [], "sourceUrl": null }
+    ]
+  },
+  "faqs": [
+    { "question": "AFT, NCP e RUAP: che cosa significano?", "answer": "AFT significa Aggregazione Funzionale Territoriale. NCP indica il Nucleo di Cure Primarie del precedente assetto organizzativo locale. RUAP è il Ruolo Unico di Assistenza Primaria. Per l’appartenenza alla propria AFT occorre controllare gli elenchi aziendali.", "source": "air" },
+    { "question": "Il Referente è un rappresentante sindacale?", "answer": "Il Referente svolge una funzione organizzativa e di coordinamento dell’AFT. L’incarico, da solo, non autorizza a firmare accordi con l’Azienda o il Distretto; la rappresentanza sindacale resta un piano distinto.", "source": "air" },
+    { "question": "Possono votare anche i cittadini?", "answer": "Questa elezione riguarda i medici appartenenti all’AFT. I cittadini non partecipano alla scelta del Referente.", "source": "air" },
+    { "question": "Dove trovo tutti i candidati e il sostituto?", "answer": "L’elenco aziendale delle candidature è il riferimento per ogni AFT. La sezione Elezioni AFT raccoglie i nominativi pubblicati sul sito e sarà aggiornata con l’elenco completo e i sostituti comunicati dall’AUSL." },
+    { "question": "Come riconosco una candidatura sostenuta da SMI–SNAMI?", "answer": "Il sostegno è indicato con un contrassegno dedicato soltanto dopo la conferma. La presenza di un nome nell’elenco delle candidature non implica, da sola, il sostegno di SMI o SNAMI." },
+    { "question": "Che cosa devo controllare prima del voto?", "answer": "Verifica la tua AFT, i candidati e i sostituti, la sede del seggio, il giorno, l’orario e le modalità indicate nella convocazione AUSL. Porta quanto richiesto dall’avviso aziendale. In caso di differenze, segui la comunicazione aziendale più recente." },
+    { "question": "Il calendario vale anche per Imola?", "answer": "Il calendario qui riportato proviene dalla comunicazione relativa all’AUSL di Bologna. Per l’AUSL di Imola occorrono le rispettive istruzioni aziendali: date e seggi saranno indicati quando confermati." }
+  ],
+  "sources": [
+    { "id": "air", "label": "Accordo integrativo regionale per la medicina generale — Emilia-Romagna", "detail": "AIR sottoscritto il 17 febbraio 2026, pubblicato nel BURERT n. 59 del 19 marzo 2026. Art. 7: Referente AFT; Allegato 2, art. 5: modello di regolamento.", "url": "https://bur.regione.emilia-romagna.it/area-bollettini/n-59-del-19-03-2026-parte-seconda/comunicato-relativo-agli-allegati-parti-integranti-e-sostanziali-delle-deliberazioni-della-giunta-regionale-5-febbraio-2026-n-148-e-16-02-2026-n-187/accordo-integrativo-regionale-2026-03-17-1773746162", "kind": "Fonte regionale" },
+    { "id": "acn", "label": "SISAC — ACN medicina generale, 26 giugno 2026", "detail": "Pagina ufficiale con il testo coordinato dell’ACN del 15 gennaio 2026 e le integrazioni del 26 giugno 2026.", "url": "https://www.sisac.info/anteprimaNewsHome.do?idArea=201011221610481056&idNews=20260624094802420&tipo=WEB", "kind": "Fonte nazionale" },
+    { "id": "ausl-aft", "label": "AUSL Bologna — AFT: tutto quello che c’è da sapere", "detail": "Informazioni aziendali sull’organizzazione delle AFT e sui servizi ai cittadini. Le sedi dei servizi non sono un elenco di seggi elettorali.", "url": "https://www.ausl.bologna.it/servt/dipt/dcp/aft/aft-tutto-quello-che-ce-da-sapere", "kind": "Informazioni AUSL" },
+    { "id": "comunicazione-ncp", "label": "Comunicazione del Referente NCP ai medici", "detail": "Estratto relativo alle elezioni, condiviso con SMI Bologna. Fonte del calendario locale e delle precisazioni sulle candidature. Per le istruzioni operative resta necessario l’avviso aziendale.", "url": null, "kind": "Comunicazione locale" }
+  ]
+}

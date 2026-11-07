@@ -21,3 +21,123 @@
 /* Alleanza elettorale e posti per AFT */
 .coalition-home{padding-top:30px}.coalition-notice{padding:27px 30px;margin-bottom:26px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:4px}.coalition-kicker{font:700 10px/1.6 var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--red);margin-bottom:12px}.coalition-notice h2,.coalition-notice h3{font:500 27px/1.25 var(--display);letter-spacing:-.04em;margin:0 0 13px}.coalition-description{font-size:13px;line-height:1.85;color:#526257;max-width:960px}.coalition-notice--home{margin-bottom:0;background:#eef0e7}.coalition-notice--district{padding:21px 23px;margin-top:24px;margin-bottom:23px;background:#f0f2e9}.coalition-notice--district h3{font-size:22px}.coalition-notice--district .coalition-description{font-size:12px}.coalition-notice--district .coalition-kicker{font-size:9px;margin-bottom:9px}.aft-coverage{display:flex;align-items:center;gap:22px;padding:18px 0 2px}.aft-coverage>strong{font:500 35px/1.15 var(--display);letter-spacing:-.05em;white-space:nowrap;color:var(--ink)}.aft-coverage>strong>span{color:#a5ad9d;font-weight:400}.aft-coverage>p{font-size:11px;line-height:1.7;color:var(--muted)}.aft-coverage>p>span{display:block;font-weight:600;font-size:12px;color:var(--ink);margin-bottom:2px}.aft-coverage-pending{font-size:12px;color:var(--muted);margin-top:18px}.election-card-coverage{display:flex;flex-direction:column;gap:7px}.election-card-coverage>strong{font:500 31px/1.15 var(--display);letter-spacing:-.045em;color:var(--ink)}.election-card-coverage>span{font-size:11px}.candidate-slot{display:flex;align-items:flex-start;gap:18px;padding:24px 26px;border:1px dashed #cbd1c3;border-radius:4px;background:#fbfbf6}.candidate-slot-icon{width:42px;height:42px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#ecefe4;color:#7c8870}.candidate-slot-icon svg{width:21px;height:21px}.candidate-slot-kicker{font:600 8px/1.6 var(--display);letter-spacing:.075em;text-transform:uppercase;color:#75816b;margin-bottom:8px}.candidate-slot h4{font:500 19px/1.3 var(--display);letter-spacing:-.025em;margin:0 0 8px;color:#58684e}.candidate-slot p:not(.candidate-slot-kicker){font-size:12px;line-height:1.8;color:var(--muted);max-width:500px}.aft-registry-source{margin-top:19px;padding-top:17px;border-top:1px solid var(--line)}.aft-registry-source p{font-size:11px;line-height:1.85;color:var(--muted)}.aft-registry-source a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}.aft-registry-dates{font-size:10px!important;margin-top:4px}.aft-list-notice>p{font-size:11px;line-height:1.85;color:var(--muted)}.aft-list-notice .aft-registry-source{margin-top:12px;padding-top:12px}.credits-content .aft-registry-source{margin-top:12px;margin-bottom:28px}.credits-content .aft-registry-source p{font-size:12px}
 @media(max-width:650px){.coalition-home{padding-top:24px}.coalition-notice{padding:22px 21px;margin-bottom:22px}.coalition-notice h2,.coalition-notice h3{font-size:24px}.coalition-kicker{font-size:9px;letter-spacing:.065em;margin-bottom:10px}.coalition-description{font-size:12px;line-height:1.8}.coalition-notice--home{margin-bottom:0}.coalition-notice--district{padding:18px 19px;margin-top:22px}.coalition-notice--district h3{font-size:21px}.coalition-notice--district .coalition-description{font-size:11px}.coalition-notice--district .coalition-kicker{font-size:8px}.aft-coverage{gap:17px;padding-top:14px}.aft-coverage>strong{font-size:32px}.aft-coverage>p{font-size:10px}.aft-coverage>p>span{font-size:11px}.election-card-coverage>strong{font-size:28px}.election-card-coverage>span{font-size:10px}.candidate-slot{padding:20px 19px;gap:14px}.candidate-slot-icon{width:34px;height:34px}.candidate-slot-icon svg{width:18px;height:18px}.candidate-slot-kicker{font-size:7px;margin-bottom:7px}.candidate-slot h4{font-size:17px}.candidate-slot p:not(.candidate-slot-kicker){font-size:11px}.aft-registry-source p{font-size:10px}.aft-registry-dates{font-size:9px!important}.aft-list-notice>p{font-size:10px}.credits-content .aft-registry-source p{font-size:11px}}
+
+/* Guida al Referente AFT: accesso sempre visibile, contenuti e fonti. */
+.election-announcement{background:var(--ink);color:#fff;border-bottom:1px solid #ffffff21}
+.election-announcement>.container{display:flex;align-items:center;gap:24px;padding-top:13px;padding-bottom:13px}
+.election-announcement>.container>span{font:800 10px var(--display);letter-spacing:.12em;text-transform:uppercase;color:#e4d6af;white-space:nowrap}
+.election-announcement p{font-size:12px;line-height:1.5;margin:0}
+.election-announcement a{margin-left:auto;display:flex;align-items:center;gap:20px;font:700 11px var(--display);white-space:nowrap}
+.election-announcement a>span{font-size:20px;color:#e4d6af}
+.desktop-nav .guide-nav-link{font-weight:800;color:var(--red)}
+.mobile-nav .guide-nav-link{font-weight:700;color:var(--red);border-bottom:1px solid var(--line);margin-bottom:8px}
+.guide-callout{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 0 28px;padding:25px 28px;background:#e9eee5;border:1px solid #d5dfd1;border-radius:4px}
+.guide-callout .mini-label{font-size:9px;color:#536b4e}
+.guide-callout h2{font:600 23px/1.3 var(--display);letter-spacing:-.04em;margin:7px 0 6px}
+.guide-callout p{font-size:12px;color:var(--muted);margin:0}
+.guide-callout>.text-link{white-space:nowrap;font-size:11px;flex-shrink:0}
+.district-tab-panel .guide-callout{margin-top:24px;display:block;padding:20px}
+.district-tab-panel .guide-callout h2{font-size:20px}
+.district-tab-panel .guide-callout>.text-link{margin-top:15px}
+.candidate-card.is-supported{border-color:var(--red);border-top:4px solid var(--red)}
+.candidate-support-badge{display:inline-block;padding:6px 10px;border-radius:3px;background:var(--red);color:white;font:700 10px/1.5 var(--display);margin:0 0 14px}
+.candidate-card:not(.is-supported) .candidate-label{color:var(--muted)}
+.candidate-substitute{font-size:12px;line-height:1.7;margin-top:14px;color:var(--muted)}
+.candidate-source{margin:0 27px 22px;font-size:11px;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.election-supported{font-weight:600;color:var(--red)}
+.guide-hero{background:#e9ede3;padding-bottom:60px;border-bottom:1px solid #d4dccd}
+.guide-hero .breadcrumb{padding-top:28px;margin-bottom:48px}
+.guide-hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:70px;align-items:center}
+.guide-hero .eyebrow{color:#65765c;font-size:10px;margin-bottom:23px}
+.guide-hero h1{font:500 clamp(43px,5vw,70px)/1.08 var(--display);letter-spacing:-.055em;margin:0 0 26px}
+.guide-hero h1 em,.guide-section-heading h2 em,.guide-next h2 em{font-family:var(--serif);font-weight:500;letter-spacing:-.045em}
+.guide-lead{font-size:16px;line-height:1.9;max-width:590px;color:#4e6256}
+.guide-updated{font-size:10px;color:#66795c;margin-top:24px}
+.guide-hero-card{border:1px solid #d1dac8;background:#f8f9f3;padding:32px}
+.guide-hero-card>.mini-label{font-size:9px;color:#65765c}
+.guide-hero-card h2{font:500 29px/1.25 var(--display);letter-spacing:-.04em;margin:20px 0}
+.guide-hero-card p{font-size:13px;line-height:1.9;color:#5c6e60;margin-bottom:24px}
+.guide-hero-card .button{font-size:10px;width:100%;justify-content:space-between}
+.guide-hero-card>.text-link{font-size:11px;margin-top:20px}
+.guide-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 35px;padding-top:23px;padding-bottom:23px;border-bottom:1px solid var(--line)}
+.guide-index a{display:flex;gap:12px;align-items:center;padding:14px 0;font:600 12px var(--display)}
+.guide-index a>span{font-size:9px;color:#859477;font-weight:500}
+.guide-index a:hover{color:var(--red)}
+.guide-section{padding:60px 0;border-bottom:1px solid var(--line);scroll-margin-top:25px}
+.guide-section-heading{max-width:820px;margin-bottom:30px}
+.guide-section-heading .eyebrow{font-size:10px;color:#7c886e;margin-bottom:18px}
+.guide-section-heading h2{font:500 clamp(28px,3vw,42px)/1.22 var(--display);letter-spacing:-.045em;margin:0 0 24px}
+.guide-section-heading>p:not(.eyebrow){font-size:14px;line-height:1.95;color:#586b60}
+.guide-citation{font-size:10px;color:#4e684d;text-decoration:underline;text-underline-offset:3px;white-space:normal}
+.guide-section-heading .guide-citation{display:inline-block;margin:10px 12px 0 0}
+.guide-duties{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.guide-duties article{padding:28px 25px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);background:#fafaf5}
+.guide-number{font:500 10px var(--display);color:#819077}
+.guide-duties h3{font:600 19px/1.4 var(--display);letter-spacing:-.035em;margin:22px 0 12px}
+.guide-duties p{font-size:12px;color:#607060;line-height:1.9}
+.guide-section-source{margin-top:16px;font-size:11px;color:var(--muted)}
+.guide-rules{margin:0}
+.guide-rules>div{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,2.5fr);gap:35px;padding:25px 0;border-top:1px solid var(--line)}
+.guide-rules dt{font:600 16px/1.6 var(--display);letter-spacing:-.025em}
+.guide-rules dd{margin:0}
+.guide-rules dd p{font-size:13px;line-height:1.9;color:#586b60;margin:0 0 10px}
+.guide-source-note{padding:19px 22px;border-left:3px solid #a6b59a;background:#edf0e7;font-size:12px;line-height:1.9;color:#52674f}
+.guide-source-note .guide-citation{display:inline-block;margin-top:8px}
+.guide-timeline{list-style:none;margin:28px 0 0;padding:0}
+.guide-timeline>li{display:grid;grid-template-columns:190px minmax(0,1fr);gap:35px;padding:28px;border-top:1px solid var(--line)}
+.guide-timeline>li.is-featured{background:var(--ink);color:#fff;border:0;border-radius:4px;padding-top:33px;padding-bottom:33px}
+.guide-timeline-date time{display:block;font:600 20px/1.4 var(--display);letter-spacing:-.03em}
+.guide-timeline-date>span{font-size:11px;color:#71826a}
+.guide-timeline h3{font:600 18px/1.5 var(--display);letter-spacing:-.03em;margin:0 0 9px}
+.guide-timeline p{font-size:12px;line-height:1.9;color:#607060;max-width:650px;margin:0}
+.guide-timeline .is-featured p,.guide-timeline .is-featured .guide-timeline-date>span{color:#d2ddc8}
+.guide-timeline .text-link{color:#e4d6af;font-size:11px;margin-top:18px}
+.guide-voting{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:36px;align-items:start}
+.guide-voting label{display:block;font:600 11px var(--display);margin-bottom:12px}
+.guide-voting select{width:100%;max-width:100%;padding:15px 35px 15px 14px;border:1px solid #c9d2c1;background:#fff;border-radius:3px;color:var(--ink);font-size:12px}
+.guide-voting-note{font-size:11px;color:var(--muted);line-height:1.9;margin-top:18px}
+.guide-voting-result{background:#fff;border:1px solid var(--line);border-radius:4px;padding:28px;min-height:220px}
+.guide-voting-result>.mini-label{font-size:9px;color:#718064}
+.guide-voting-result h3{font:500 27px/1.3 var(--display);letter-spacing:-.04em;margin:18px 0}
+.guide-voting-result>p{font-size:13px;color:#61715c;line-height:1.9}
+.guide-voting-result dl{margin:0 0 22px}
+.guide-voting-result dl>div{border-top:1px solid var(--line);padding:13px 0}
+.guide-voting-result dt{font-size:10px;font-weight:600;color:#718064;margin-bottom:6px}
+.guide-voting-result dd{font-size:13px;line-height:1.7;margin:0}
+.guide-voting-result>.text-link{font-size:11px;margin-top:18px;display:flex}
+.guide-voting-result .guide-pending-note{font-size:11px;background:#f0f2e9;padding:13px 15px}
+.guide-faqs details{border-top:1px solid var(--line)}
+.guide-faqs details:last-child{border-bottom:1px solid var(--line)}
+.guide-faqs summary{display:flex;justify-content:space-between;gap:25px;align-items:center;cursor:pointer;padding:22px 0;font:600 16px/1.6 var(--display);letter-spacing:-.025em;list-style:none}
+.guide-faqs summary::-webkit-details-marker{display:none}
+.guide-faqs summary>span{font-size:26px;font-weight:400;color:#7c8d6e;transition:transform .2s}
+.guide-faqs details[open] summary>span{transform:rotate(45deg)}
+.guide-faqs details>div{padding:0 45px 24px 0;max-width:850px}
+.guide-faqs details p{font-size:13px;line-height:1.95;color:#586b60;margin-bottom:12px}
+.guide-sources>ol{list-style:none;margin:0;padding:0}
+.guide-sources>ol>li{padding:24px 0;border-top:1px solid var(--line);scroll-margin-top:25px}
+.guide-sources .mini-label{font-size:9px;color:#7b8b6f}
+.guide-sources h3{font:600 16px/1.6 var(--display);letter-spacing:-.02em;margin:10px 0}
+.guide-sources h3 a{border-bottom:1px solid #c7cdbf;overflow-wrap:anywhere}
+.guide-sources li p{font-size:12px;line-height:1.9;color:#607060;max-width:850px}
+.guide-next{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:50px 0 65px}
+.guide-next .eyebrow{font-size:10px;color:#7c886e;margin-bottom:15px}
+.guide-next h2{font:500 35px/1.2 var(--display);letter-spacing:-.04em}
+.guide-next .button{font-size:11px;white-space:nowrap}
+@media(min-width:951px) and (max-width:1250px){.desktop-nav{gap:17px}.desktop-nav>a,.nav-disclosure-toggle{font-size:11px}.brand-place>span{display:none}.site-header{gap:16px}.brand img{width:92px}.brand-place{font-size:11px}.header-join{font-size:9px;padding:12px;gap:10px}}
+@media(max-width:950px){.guide-hero-grid{gap:35px;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}.guide-hero-card{padding:24px}.guide-hero-card h2{font-size:25px}.guide-hero h1{font-size:48px}.guide-duties{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-index{gap:0 18px}.guide-index a{font-size:11px}.guide-voting{gap:24px}.guide-voting-result{padding:23px}}
+@media(max-width:650px){
+  .election-announcement>.container{display:grid;grid-template-columns:1fr auto;gap:5px 14px;padding-top:12px;padding-bottom:12px}
+  .election-announcement>.container>span{font-size:8px}.election-announcement p{font-size:10px;grid-column:1;max-width:240px}.election-announcement a{grid-column:2;grid-row:1/3;font-size:10px;gap:8px}.election-announcement a>span{font-size:17px}
+  .guide-hero{padding-bottom:35px}.guide-hero .breadcrumb{padding-top:23px;margin-bottom:28px;font-size:9px}.guide-hero-grid{grid-template-columns:1fr;gap:28px}.guide-hero .eyebrow{font-size:8px;margin-bottom:18px}.guide-hero h1{font-size:44px;margin-bottom:22px}.guide-lead{font-size:13px;line-height:1.9}.guide-updated{font-size:9px;margin-top:19px}.guide-hero-card{padding:23px}.guide-hero-card h2{font-size:26px;margin-top:15px}.guide-hero-card p{font-size:12px}.guide-hero-card .button{font-size:10px;min-height:46px}.guide-hero-card>.text-link{font-size:10px}
+  .guide-index{grid-template-columns:repeat(2,minmax(0,1fr));padding-top:15px;padding-bottom:15px;gap:0 15px}.guide-index a{font-size:10px;padding:13px 0;gap:9px}.guide-index a>span{font-size:8px}
+  .guide-section{padding:38px 0}.guide-section-heading{margin-bottom:23px}.guide-section-heading .eyebrow{font-size:9px;margin-bottom:15px}.guide-section-heading h2{font-size:30px;margin-bottom:20px}.guide-section-heading>p:not(.eyebrow){font-size:12px}.guide-citation{font-size:9px}
+  .guide-duties{grid-template-columns:1fr}.guide-duties article{padding:22px}.guide-duties h3{font-size:19px;margin-top:12px}.guide-duties p{font-size:12px}.guide-section-source{font-size:10px;line-height:1.8}
+  .guide-rules>div{grid-template-columns:1fr;gap:10px;padding:22px 0}.guide-rules dt{font-size:16px}.guide-rules dd p{font-size:12px}.guide-source-note{padding:16px 18px;font-size:11px}
+  .guide-timeline>li{grid-template-columns:100px minmax(0,1fr);gap:15px;padding:23px 0}.guide-timeline>li.is-featured{padding:24px 17px;margin-left:-10px;margin-right:-10px;grid-template-columns:100px minmax(0,1fr);gap:13px}.guide-timeline-date time{font-size:17px}.guide-timeline-date>span{font-size:10px}.guide-timeline h3{font-size:16px}.guide-timeline p{font-size:11px}.guide-timeline .text-link{font-size:10px}
+  .guide-voting{grid-template-columns:1fr;gap:20px}.guide-voting select{font-size:12px}.guide-voting-result{padding:23px}.guide-voting-result h3{font-size:25px}.guide-voting-result>p{font-size:12px}.guide-voting-note{font-size:10px}.guide-voting-result dd{font-size:12px}
+  .guide-faqs summary{padding:20px 0;font-size:14px;gap:18px}.guide-faqs details>div{padding-right:15px}.guide-faqs details p{font-size:12px}.guide-sources h3{font-size:14px}.guide-sources li p{font-size:11px}
+  .guide-next{display:block;padding:35px 0 45px}.guide-next h2{font-size:31px}.guide-next .button{font-size:10px;margin-top:25px}.guide-callout{display:block;padding:21px}.guide-callout h2{font-size:21px}.guide-callout p{font-size:11px}.guide-callout>.text-link{display:flex;margin-top:16px;font-size:10px}
+  .candidate-support-badge{font-size:8px;padding:5px 7px;margin-bottom:10px}.candidate-substitute{font-size:11px}.candidate-source{margin:0 20px 20px;font-size:10px}
+}
+@media(max-width:370px){.guide-hero h1{font-size:39px}.guide-section-heading h2{font-size:27px}.election-announcement p{max-width:175px}.guide-timeline>li,.guide-timeline>li.is-featured{grid-template-columns:87px minmax(0,1fr)}.guide-timeline-date time{font-size:15px}}

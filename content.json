@@ -9,7 +9,8 @@
       "role": "Medico di medicina generale",
       "practiceLocation": "Castello d’Argile",
       "photo": "./assets/photos/nicoletta-giulietti.jpg",
-      "bio": "Vorrei battermi per ridare dignità alla nostra professione, contrastando la riduzione del ruolo del medico di medicina generale a quello di un mero scrivano.\n\nMi piacerebbe rafforzare l’assistenza sul territorio, mettendo al centro il paziente, e promuovere l’educazione sanitaria, aiutando le persone a conoscere e utilizzare correttamente i servizi disponibili.\n\nPer farlo, però, l’assistenza territoriale deve funzionare meglio: gli assistiti devono poter trovare risposta ai propri bisogni nel rapporto con il proprio medico, ricorrendo al Pronto Soccorso quando è necessario."
+      "bio": "Vorrei battermi per ridare dignità alla nostra professione, contrastando la riduzione del ruolo del medico di medicina generale a quello di un mero scrivano.\n\nMi piacerebbe rafforzare l’assistenza sul territorio, mettendo al centro il paziente, e promuovere l’educazione sanitaria, aiutando le persone a conoscere e utilizzare correttamente i servizi disponibili.\n\nPer farlo, però, l’assistenza territoriale deve funzionare meglio: gli assistiti devono poter trovare risposta ai propri bisogni nel rapporto con il proprio medico, ricorrendo al Pronto Soccorso quando è necessario.",
+      "endorsement": { "status": "pending", "coalition": null }
     },
     {
       "id": "salvatore-cognetti",
@@ -21,11 +22,12 @@
       "practiceLocation": "Crespellano",
       "photo": null,
       "bio": null,
-      "profilePending": true
+      "profilePending": true,
+      "endorsement": { "status": "pending", "coalition": null }
     }
   ],
   "representatives": [],
-  "electionNotice": "Le candidature condivise SMI–SNAMI sono organizzate per distretto e AFT. Per ogni aggregazione è predisposto uno spazio, che viene completato quando il nominativo è confermato.",
+  "electionNotice": "Le candidature sono organizzate per distretto e AFT. L’elenco completo e i sostituti sono in aggiornamento sulla base delle comunicazioni AUSL. Il sostegno SMI–SNAMI è indicato separatamente, soltanto dopo la conferma.",
   "provincialRepresentatives": [],
   "regionalBoard": {
     "source": "https://sindacatomedicitaliani.it/organigrammi-regionali/emilia-romagna/",
@@ -676,8 +678,8 @@
   ],
   "coalition": {
     "name": "SMI–SNAMI",
-    "title": "Una candidatura condivisa per ogni AFT",
-    "description": "SMI e SNAMI uniscono le forze per presentare un candidato condiviso in ogni AFT. L’obiettivo è coordinare il voto e concentrare le preferenze su un’unica candidatura, evitando di disperderle. I nominativi vengono pubblicati progressivamente, dopo la conferma delle candidature."
+    "title": "Il sostegno SMI–SNAMI, riconoscibile",
+    "description": "SMI e SNAMI coordinano il sostegno a una candidatura per AFT. Le candidature comunicate dall’AUSL e il sostegno sindacale sono informazioni distinte: il contrassegno SMI–SNAMI compare soltanto quando il sostegno è confermato."
   },
   "aftRegistry": {
     "complete": true,

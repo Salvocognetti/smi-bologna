@@ -297,7 +297,7 @@ function route() {
 
 async function init() {
   try {
-    [geography,content,credits,aftGuide]=await Promise.all(['./assets/district-map.json','./content.json?v=20261107-guida-aft','./assets/photo-credits.json','./aft-guide.json?v=20261107-guida-aft'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
+    [geography,content,credits,aftGuide]=await Promise.all(['./assets/district-map.json','./content.json?v=20261107-sostegno-confermato','./assets/photo-credits.json','./aft-guide.json?v=20261107-guida-aft'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
     document.querySelector('#year').textContent=new Date().getFullYear();
     route();
     window.addEventListener('hashchange',route);

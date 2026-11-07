@@ -10,7 +10,7 @@
       "practiceLocation": "Castello d’Argile",
       "photo": "./assets/photos/nicoletta-giulietti.jpg",
       "bio": "Vorrei battermi per ridare dignità alla nostra professione, contrastando la riduzione del ruolo del medico di medicina generale a quello di un mero scrivano.\n\nMi piacerebbe rafforzare l’assistenza sul territorio, mettendo al centro il paziente, e promuovere l’educazione sanitaria, aiutando le persone a conoscere e utilizzare correttamente i servizi disponibili.\n\nPer farlo, però, l’assistenza territoriale deve funzionare meglio: gli assistiti devono poter trovare risposta ai propri bisogni nel rapporto con il proprio medico, ricorrendo al Pronto Soccorso quando è necessario.",
-      "endorsement": { "status": "pending", "coalition": null }
+      "endorsement": { "status": "confirmed", "coalition": "SMI–SNAMI" }
     },
     {
       "id": "salvatore-cognetti",
@@ -23,7 +23,7 @@
       "photo": null,
       "bio": null,
       "profilePending": true,
-      "endorsement": { "status": "pending", "coalition": null }
+      "endorsement": { "status": "confirmed", "coalition": "SMI–SNAMI" }
     }
   ],
   "representatives": [],

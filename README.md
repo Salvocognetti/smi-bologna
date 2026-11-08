@@ -10,7 +10,7 @@ Configurare il dominio personalizzato smibologna.it nelle impostazioni Pages pri
 
 ## Contenuti
 
-Dati in content.json. Candidati e rappresentanti provinciali devono essere confermati prima della pubblicazione. La pagina «Il nostro impegno per Bologna» attende i testi approvati.
+Dati in content.json. Candidati e rappresentanti provinciali devono essere confermati prima della pubblicazione. La pagina «Il nostro impegno per Bologna» contiene il testo approvato l’8 novembre 2026, in `commitment.js`; è richiamata anche dalla home e dalle pagine delle candidature. Le posizioni e gli obiettivi sindacali sono presentati in questa pagina, distinta dalla guida informativa alle regole elettorali.
 
 Fonte organigramma regionale e attribuzioni fotografiche sono esposte nel sito. Le fotografie conservano le licenze indicate in assets/photo-credits.json; caratteri con licenza SIL OFL. Il marchio SMI proviene dal sito nazionale.
 

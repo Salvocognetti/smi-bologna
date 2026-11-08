@@ -37,7 +37,7 @@ const coverageText = id => {
   const n=aftCoverage(id);
   return n.total?`${n.published} ${n.published===1?'candidatura pubblicata':'candidature pubblicate'} · ${n.covered} / ${n.total} AFT`:'Elenco AFT da integrare';
 };
-const guideCallout = () => `<aside class="guide-callout"><div><span class="mini-label">Prima del voto</span><h2>Che cosa fa il Referente AFT?</h2><p>Il ruolo, le regole, il calendario e le indicazioni per il tuo distretto.</p></div><a class="text-link" href="#/guida-aft">Consulta la guida <span aria-hidden="true">↗</span></a></aside>`;
+const guideCallout = () => `<aside class="guide-callout"><div><span class="mini-label">Prima del voto</span><h2>Che cosa fa il Referente AFT?</h2><p>Il ruolo, le regole, il calendario e le indicazioni per il tuo distretto.</p></div><div class="election-reading-links"><a class="text-link" href="#/guida-aft">Consulta la guida <span aria-hidden="true">↗</span></a><a class="text-link" href="#/impegno-bologna">Il progetto SMI–SNAMI <span aria-hidden="true">↗</span></a></div></aside>`;
 
 function coalitionNotice(mode='page') {
   const c=content.coalition||{};
@@ -93,7 +93,7 @@ function homePage() {
     <div class="map-experience"><div class="map-stage" id="map-stage"><div class="map-compass"><span aria-hidden="true">↑</span> N</div>${mapSvg()}<div class="map-legend"><span><i></i> AUSL di Bologna</span><span><i></i> AUSL di Imola</span></div></div><div class="district-preview" id="district-preview" aria-live="polite"></div><div class="district-list" id="district-list" hidden>${geography.districts.map(listItem).join('')}</div></div>
     <p class="map-source">Sei distretti dell’AUSL di Bologna e il territorio dell’AUSL di Imola. I distretti comprendono più AFT. <a href="#/crediti">Fonti della mappa ↗</a></p>
   </section>
-  <section class="election-section"><div class="container election-inner"><div><p class="eyebrow">Elezioni AFT</p><h2>Le persone.<br>Una scelta informata.</h2></div><div class="election-copy"><p>Le candidature sono organizzate per AFT e distretto. Il sostegno di SMI–SNAMI è riconoscibile da un contrassegno dedicato, soltanto quando confermato. Nominativi, sostituti e profili vengono aggiornati progressivamente.</p><a href="#/elezioni" class="text-link">Scopri la sezione elezioni <span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="election-section"><div class="container election-inner"><div><p class="eyebrow">Il nostro impegno</p><h2>Vota la squadra.<br>Vota le idee.</h2></div><div class="election-copy"><p>Tutela del reddito, carichi sostenibili e solidarietà tra territorio, ospedale ed emergenza. Conosci il progetto che unisce i candidati sostenuti da SMI–SNAMI.</p><a href="#/impegno-bologna" class="text-link">Il nostro impegno per Bologna <span aria-hidden="true">↗</span></a><a href="#/elezioni" class="text-link">Conosci i candidati <span aria-hidden="true">↗</span></a></div></div></section>
   <section class="container archive-teaser"><div class="archive-icon">${icons.book}</div><div><p class="eyebrow">Archivio SMI</p><h2>La norma giusta,<br><em>quando serve.</em></h2></div><div><p>Lo spazio dedicato ad accordi, normativa e giurisprudenza è in preparazione.</p><a href="#/archivio" class="text-link">Scopri l’archivio <span aria-hidden="true">→</span></a></div></section>${joinSection()}`;
   renderDistrictPreview();
   wireMap();
@@ -237,8 +237,7 @@ function regionalBoardPage() {
 }
 
 function bolognaCommitmentPage() {
-  document.title='Il nostro impegno per Bologna — SMI Bologna';
-  main.innerHTML=`<section class="container page-header">${breadcrumb('Il nostro impegno per Bologna')}<p class="eyebrow">SMI Bologna</p><h1>Il nostro impegno<br><em>per Bologna.</em></h1></section><section class="container union-content commitment-content"><div class="empty-state union-empty"><div class="empty-icon">${icons.book}</div><div><h2>Contenuti in preparazione.</h2><p>Le priorità territoriali di SMI Bologna saranno pubblicate in questa pagina.</p></div></div></section>${joinSection()}`;
+  renderBolognaCommitment();
 }
 
 function creditsPage() {

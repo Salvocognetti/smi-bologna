@@ -1,5 +1,5 @@
 {
-  "updatedOn": "2026-11-07",
+  "updatedOn": "2026-11-18",
   "title": "Referente AFT: ruolo ed elezioni",
   "intro": "Una guida per i medici: che cosa fa il Referente, come viene scelto e quali informazioni controllare prima del voto.",
   "about": "L’AFT, Aggregazione Funzionale Territoriale, riunisce i medici di medicina generale di uno stesso territorio per condividere obiettivi, percorsi assistenziali e strumenti di lavoro. Il Referente è il collega che ne coordina le attività e il raccordo con l’Azienda e il Distretto.",
@@ -13,7 +13,6 @@
   ],
   "rules": [
     { "title": "Chi sceglie il Referente", "text": "Sono i medici appartenenti all’AFT a eleggere al proprio interno il Referente. La partecipazione riguarda i componenti dell’AFT, secondo gli elenchi e le istruzioni aziendali.", "source": "air", "reference": "Allegato 2, art. 5" },
-    { "title": "Referente e sostituto", "text": "La candidatura al ruolo di Referente è presentata insieme a quella del proprio sostituto. Entrambi devono poter garantire continuità alla funzione.", "source": "air", "reference": "Art. 7; comunicazione NCP" },
     { "title": "Requisiti comunicati ai medici", "text": "La comunicazione NCP indica la priorità per i medici RUAP a tempo indeterminato e, in assenza di loro candidature, la possibilità per i RUAP a tempo determinato. I requisiti operativi vanno verificati nell’avviso aziendale.", "source": "comunicazione-ncp", "reference": "Comunicazione locale" },
     { "title": "Continuità del mandato", "text": "Non sono candidabili i medici per i quali sia prevedibile il pensionamento prima della scadenza naturale del mandato.", "source": "air", "reference": "Art. 7" },
     { "title": "Voto e parità", "text": "Il modello di regolamento regionale prevede l’elezione a maggioranza da parte dei medici dell’AFT. In caso di parità prevale la maggiore anzianità di convenzionamento. Per quorum e modalità di espressione del voto occorre fare riferimento al regolamento e all’avviso aziendale.", "source": "air", "reference": "Allegato 2, art. 5" },
@@ -25,7 +24,7 @@
     "source": "comunicazione-ncp",
     "notice": "Calendario riportato nella comunicazione del Referente NCP. Per eventuali variazioni e per le istruzioni operative fa fede l’avviso dell’AUSL. Le date non sono estese automaticamente all’AUSL di Imola.",
     "events": [
-      { "date": "2026-11-04", "label": "4 novembre", "title": "Presentazione delle candidature", "text": "Termine indicato per presentare la candidatura del Referente insieme al sostituto." },
+      { "date": "2026-11-04", "label": "4 novembre", "title": "Presentazione delle candidature", "text": "Termine indicato per la presentazione delle candidature a referente AFT." },
       { "date": "2026-11-08", "label": "8 novembre", "title": "Comunicazione dei candidati", "text": "Data prevista dal calendario per la comunicazione dei nominativi." },
       { "date": "2026-11-18", "endDate": "2026-11-19", "label": "18–19 novembre", "title": "Votazioni", "text": "Sede, orari e istruzioni del proprio seggio devono essere verificati nella convocazione aziendale.", "featured": true },
       { "date": "2026-11-20", "label": "20 novembre", "title": "Spoglio delle schede", "text": "Conteggio dei voti secondo le modalità stabilite dall’Azienda." },
@@ -49,9 +48,8 @@
     { "question": "AFT, NCP e RUAP: che cosa significano?", "answer": "AFT significa Aggregazione Funzionale Territoriale. NCP indica il Nucleo di Cure Primarie del precedente assetto organizzativo locale. RUAP è il Ruolo Unico di Assistenza Primaria. Per l’appartenenza alla propria AFT occorre controllare gli elenchi aziendali.", "source": "air" },
     { "question": "Il Referente è un rappresentante sindacale?", "answer": "Il Referente svolge una funzione organizzativa e di coordinamento dell’AFT. L’incarico, da solo, non autorizza a firmare accordi con l’Azienda o il Distretto; la rappresentanza sindacale resta un piano distinto.", "source": "air" },
     { "question": "Possono votare anche i cittadini?", "answer": "Questa elezione riguarda i medici appartenenti all’AFT. I cittadini non partecipano alla scelta del Referente.", "source": "air" },
-    { "question": "Dove trovo tutti i candidati e il sostituto?", "answer": "L’elenco aziendale delle candidature è il riferimento per ogni AFT. La sezione Elezioni AFT raccoglie i nominativi pubblicati sul sito e sarà aggiornata con l’elenco completo e i sostituti comunicati dall’AUSL." },
-    { "question": "Come riconosco una candidatura sostenuta da SMI–SNAMI?", "answer": "Il sostegno è indicato con un contrassegno dedicato soltanto dopo la conferma. La presenza di un nome nell’elenco delle candidature non implica, da sola, il sostegno di SMI o SNAMI." },
-    { "question": "Che cosa devo controllare prima del voto?", "answer": "Verifica la tua AFT, i candidati e i sostituti, la sede del seggio, il giorno, l’orario e le modalità indicate nella convocazione AUSL. Porta quanto richiesto dall’avviso aziendale. In caso di differenze, segui la comunicazione aziendale più recente." },
+    { "question": "Dove trovo i nomi di chi si candida nella mia AFT?", "answer": "Nella sezione Elezioni AFT, scegli il tuo distretto e cerca la tua AFT. Per ogni candidatura trovi il nome del candidato referente e, quando compare nell’elenco, il nome del vice proposto." },
+    { "question": "Che cosa devo controllare prima del voto?", "answer": "Verifica la tua AFT, le candidature, la sede del seggio, il giorno, l’orario e le modalità indicate nella convocazione AUSL. Porta quanto richiesto dall’avviso aziendale. In caso di differenze, segui la comunicazione aziendale più recente." },
     { "question": "Il calendario vale anche per Imola?", "answer": "Il calendario qui riportato proviene dalla comunicazione relativa all’AUSL di Bologna. Per l’AUSL di Imola occorrono le rispettive istruzioni aziendali: date e seggi saranno indicati quando confermati." }
   ],
   "sources": [

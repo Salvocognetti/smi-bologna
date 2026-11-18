@@ -54,7 +54,20 @@ test('candidate and substitute names are escaped in rendered cards', () => {
   const card = run("personCard({name:'<script>candidate</script>',substitute:{name:'<img onerror=alert(1)>'}},true)");
   assert.doesNotMatch(card, /<script>|<img onerror/);
   assert.match(card, /&lt;script&gt;candidate/);
-  assert.match(card, /Candidato sostituto/);
+  assert.match(card, /Vice proposto/);
+  assert.match(card, /&lt;img onerror/);
+});
+
+test('each person keeps their own union and proposed deputies are optional', () => {
+  const { run } = fixture();
+  const mixed = run("personCard({name:'A',union:'SMI',substitute:{name:'B',union:'SNAMI'}},true)");
+  assert.match(mixed, /union-smi">A <span class="roster-union">SMI/);
+  assert.match(mixed, /union-snami">B <span class="roster-union">SNAMI/);
+  const deputyOnly = run("personCard({name:'A',substitute:{name:'B',union:'SMI'}},true)");
+  assert.match(deputyOnly, /<h4>A<\/h4>/);
+  assert.match(deputyOnly, /union-smi">B/);
+  const noDeputy = run("personCard({name:'A'},true)");
+  assert.doesNotMatch(noDeputy, /Vice proposto|roster-highlight/);
 });
 
 test('unverified polling venues are never displayed as confirmed', () => {

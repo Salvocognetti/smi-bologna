@@ -1,16 +1,49 @@
 {
   "candidates": [
     {
-      "id": "nicoletta-giulietti",
-      "name": "D.ssa Nicoletta Giulietti",
-      "district": "pianura-est",
-      "aftId": "argelato-castello-dargile-pieve-di-cento",
-      "aft": "AFT/NCP Argelato, Castello d’Argile e Pieve di Cento",
-      "role": "Medico di medicina generale",
-      "practiceLocation": "Castello d’Argile",
-      "photo": "./assets/photos/nicoletta-giulietti.jpg",
-      "bio": "Vorrei battermi per ridare dignità alla nostra professione, contrastando la riduzione del ruolo del medico di medicina generale a quello di un mero scrivano.\n\nMi piacerebbe rafforzare l’assistenza sul territorio, mettendo al centro il paziente, e promuovere l’educazione sanitaria, aiutando le persone a conoscere e utilizzare correttamente i servizi disponibili.\n\nPer farlo, però, l’assistenza territoriale deve funzionare meglio: gli assistiti devono poter trovare risposta ai propri bisogni nel rapporto con il proprio medico, ricorrendo al Pronto Soccorso quando è necessario.",
-      "endorsement": { "status": "confirmed", "coalition": "SMI–SNAMI" }
+      "id": "boero-roberto",
+      "name": "Boero Roberto",
+      "district": "reno-lavino-samoggia",
+      "aftId": "casalecchio-di-reno",
+      "union": "SMI",
+      "substitute": {
+        "name": "Silvestrin Antonio",
+        "union": "SNAMI"
+      }
+    },
+    {
+      "id": "romagnoli-elena",
+      "name": "Romagnoli Elena",
+      "district": "reno-lavino-samoggia",
+      "aftId": "casalecchio-di-reno",
+      "substitute": {
+        "name": "Benassi Barbara (*)"
+      }
+    },
+    {
+      "id": "franceschini-giacomo",
+      "name": "Franceschini Giacomo",
+      "district": "reno-lavino-samoggia",
+      "aftId": "monte-san-pietro-zola-predosa",
+      "union": "SNAMI",
+      "substitute": {
+        "name": "Gentile Nelson (*)"
+      }
+    },
+    {
+      "id": "valbonesi-francesca",
+      "name": "Valbonesi Francesca",
+      "district": "reno-lavino-samoggia",
+      "aftId": "monte-san-pietro-zola-predosa"
+    },
+    {
+      "id": "brasiliani-piero",
+      "name": "Brasiliani Piero",
+      "district": "reno-lavino-samoggia",
+      "aftId": "valle-del-samoggia",
+      "substitute": {
+        "name": "Baldini Pietro (*)"
+      }
     },
     {
       "id": "salvatore-cognetti",
@@ -23,11 +56,359 @@
       "photo": null,
       "bio": null,
       "profilePending": true,
-      "endorsement": { "status": "confirmed", "coalition": "SMI–SNAMI" }
+      "endorsement": {
+        "status": "confirmed",
+        "coalition": "SMI–SNAMI"
+      },
+      "union": "SMI",
+      "substitute": {
+        "name": "Manca Marco (*)",
+        "union": "SMI"
+      }
+    },
+    {
+      "id": "di-giuseppe-francesca",
+      "name": "Di Giuseppe Francesca",
+      "district": "reno-lavino-samoggia",
+      "aftId": "sasso-marconi",
+      "substitute": {
+        "name": "Morisi Lisa (*)"
+      }
+    },
+    {
+      "id": "navarrini-paolo",
+      "name": "Navarrini Paolo",
+      "district": "appennino",
+      "aftId": "appennino-alto-reno-casio-lizzano-gaggio",
+      "union": "SNAMI",
+      "substitute": {
+        "name": "Galasso Francesco Saverio"
+      }
+    },
+    {
+      "id": "nicosia-salvatore",
+      "name": "Nicosia Salvatore",
+      "district": "appennino",
+      "aftId": "appennino-alto-reno-casio-lizzano-gaggio"
+    },
+    {
+      "id": "brunini-gabriele",
+      "name": "Brunini Gabriele",
+      "district": "appennino",
+      "aftId": "appennino-alto-reno-casio-lizzano-gaggio",
+      "substitute": {
+        "name": "Nicosia Salvatore"
+      }
+    },
+    {
+      "id": "de-negri-mario",
+      "name": "De Negri Mario",
+      "district": "appennino",
+      "aftId": "appennino-castel-daiano-grizzana-vergato",
+      "union": "SNAMI",
+      "substitute": {
+        "name": "Benassi Alfredo (*)",
+        "union": "SNAMI"
+      }
+    },
+    {
+      "id": "bartolomei-paolo",
+      "name": "Bartolomei Paolo",
+      "district": "appennino",
+      "aftId": "appennino-camugnano-castiglione-san-benedetto",
+      "substitute": {
+        "name": "Bartolomei Vincenzo (*)"
+      }
+    },
+    {
+      "id": "degli-esposti-ilaria",
+      "name": "Degli Esposti Ilaria",
+      "district": "appennino",
+      "aftId": "appennino-marzabotto-monzuno"
+    },
+    {
+      "id": "diaspri-giampaolo",
+      "name": "Diaspri Giampaolo",
+      "district": "appennino",
+      "aftId": "appennino-marzabotto-monzuno",
+      "union": "SMI"
+    },
+    {
+      "id": "giordani-lorenzo",
+      "name": "Giordani Lorenzo",
+      "district": "savena-idice",
+      "aftId": "savena-idice-pianoro-loiano-monghidoro"
+    },
+    {
+      "id": "guido-leonardo",
+      "name": "Guido Leonardo",
+      "district": "savena-idice",
+      "aftId": "savena-idice-pianoro-loiano-monghidoro"
+    },
+    {
+      "id": "micai-alessandro",
+      "name": "Micai Alessandro",
+      "district": "savena-idice",
+      "aftId": "savena-idice-san-lazzaro",
+      "union": "SNAMI"
+    },
+    {
+      "id": "tufoni-manuel",
+      "name": "Tufoni Manuel",
+      "district": "savena-idice",
+      "aftId": "savena-idice-san-lazzaro"
+    },
+    {
+      "id": "ponissa-amedeo",
+      "name": "Ponissa Amedeo",
+      "district": "savena-idice",
+      "aftId": "savena-idice-monterenzio-ozzano",
+      "substitute": {
+        "name": "Liguori Giuseppina (*)",
+        "union": "SMI"
+      }
+    },
+    {
+      "id": "nicoletta-giulietti",
+      "name": "D.ssa Nicoletta Giulietti",
+      "district": "pianura-est",
+      "aftId": "argelato-castello-dargile-pieve-di-cento",
+      "aft": "AFT/NCP Argelato, Castello d’Argile e Pieve di Cento",
+      "role": "Medico di medicina generale",
+      "practiceLocation": "Castello d’Argile",
+      "photo": "./assets/photos/nicoletta-giulietti.jpg",
+      "bio": "Vorrei battermi per ridare dignità alla nostra professione, contrastando la riduzione del ruolo del medico di medicina generale a quello di un mero scrivano.\n\nMi piacerebbe rafforzare l’assistenza sul territorio, mettendo al centro il paziente, e promuovere l’educazione sanitaria, aiutando le persone a conoscere e utilizzare correttamente i servizi disponibili.\n\nPer farlo, però, l’assistenza territoriale deve funzionare meglio: gli assistiti devono poter trovare risposta ai propri bisogni nel rapporto con il proprio medico, ricorrendo al Pronto Soccorso quando è necessario.",
+      "endorsement": {
+        "status": "confirmed",
+        "coalition": "SMI–SNAMI"
+      },
+      "union": "SMI"
+    },
+    {
+      "id": "rodeghiero-maria-laura",
+      "name": "Rodeghiero Maria Laura",
+      "district": "pianura-est",
+      "aftId": "argelato-castello-dargile-pieve-di-cento"
+    },
+    {
+      "id": "baruffini-federica",
+      "name": "Baruffini Federica",
+      "district": "pianura-est",
+      "aftId": "san-giorgio-di-piano-san-pietro-in-casale-galliera"
+    },
+    {
+      "id": "fejza-erion",
+      "name": "Fejza Erion",
+      "district": "pianura-est",
+      "aftId": "bentivoglio-castel-maggiore"
+    },
+    {
+      "id": "larosa-francesco",
+      "name": "Larosa Francesco",
+      "district": "pianura-est",
+      "aftId": "castenaso-granarolo-dellemilia"
+    },
+    {
+      "id": "contarino-giuseppe",
+      "name": "Contarino Giuseppe",
+      "district": "pianura-est",
+      "aftId": "baricella-minerbio-malalbergo",
+      "union": "SNAMI"
+    },
+    {
+      "id": "zisa-domenico",
+      "name": "Zisa Domenico",
+      "district": "pianura-est",
+      "aftId": "baricella-minerbio-malalbergo"
+    },
+    {
+      "id": "colazzo-anna-lucia",
+      "name": "Colazzo Anna Lucia",
+      "district": "pianura-est",
+      "aftId": "budrio-molinella"
+    },
+    {
+      "id": "davoli-francesco",
+      "name": "Davoli Francesco",
+      "district": "pianura-est",
+      "aftId": "budrio-molinella"
+    },
+    {
+      "id": "chiarelli-davide",
+      "name": "Chiarelli Davide",
+      "district": "pianura-ovest",
+      "aftId": "crevalcore-santagata-bolognese"
+    },
+    {
+      "id": "bertusi-gabriele",
+      "name": "Bertusi Gabriele",
+      "district": "pianura-ovest",
+      "aftId": "san-giovanni-in-persiceto"
+    },
+    {
+      "id": "belardi-silvia",
+      "name": "Belardi Silvia",
+      "district": "pianura-ovest",
+      "aftId": "calderara-anzola-sala-bolognese"
+    },
+    {
+      "id": "saretta-barbara",
+      "name": "Saretta Barbara",
+      "district": "pianura-ovest",
+      "aftId": "calderara-anzola-sala-bolognese",
+      "substitute": {
+        "name": "Cevenini Davide (*)",
+        "union": "SNAMI"
+      }
+    },
+    {
+      "id": "soattin-piera",
+      "name": "Soattin Piera",
+      "district": "bologna",
+      "aftId": "bologna-borgo-panigale",
+      "union": "SNAMI"
+    },
+    {
+      "id": "alemanno-abbondanza",
+      "name": "Alemanno Abbondanza",
+      "district": "bologna",
+      "aftId": "bologna-reno",
+      "union": "SMI"
+    },
+    {
+      "id": "speziali-pietro",
+      "name": "Speziali Pietro",
+      "district": "bologna",
+      "aftId": "bologna-reno"
+    },
+    {
+      "id": "cosi-francesco",
+      "name": "Cosi Francesco",
+      "district": "bologna",
+      "aftId": "bologna-navile-1",
+      "union": "SNAMI"
+    },
+    {
+      "id": "mora-alessia",
+      "name": "Mora Alessia",
+      "district": "bologna",
+      "aftId": "bologna-navile-1",
+      "substitute": {
+        "name": "Versari Gianni (*)",
+        "union": "SNAMI"
+      }
+    },
+    {
+      "id": "ceka-malton",
+      "name": "Ceka Malton",
+      "district": "bologna",
+      "aftId": "bologna-navile-2"
+    },
+    {
+      "id": "miceli-rinaldo-stefano",
+      "name": "Miceli Rinaldo Stefano",
+      "district": "bologna",
+      "aftId": "bologna-porto"
+    },
+    {
+      "id": "paonessa-antonio-patrizio",
+      "name": "Paonessa Antonio Patrizio",
+      "district": "bologna",
+      "aftId": "bologna-porto"
+    },
+    {
+      "id": "di-emidio-benedetta",
+      "name": "Di Emidio Benedetta",
+      "district": "bologna",
+      "aftId": "bologna-saragozza",
+      "substitute": {
+        "name": "Carolina Testa",
+        "union": "SNAMI"
+      }
+    },
+    {
+      "id": "campedelli-lorenzo",
+      "name": "Campedelli Lorenzo",
+      "district": "bologna",
+      "aftId": "bologna-san-donato",
+      "substitute": {
+        "name": "Fasulo Chiara (*)"
+      }
+    },
+    {
+      "id": "santoro-lorenza",
+      "name": "Santoro Lorenza",
+      "district": "bologna",
+      "aftId": "bologna-san-donato"
+    },
+    {
+      "id": "visentin-giovanni",
+      "name": "Visentin Giovanni",
+      "district": "bologna",
+      "aftId": "bologna-san-donato"
+    },
+    {
+      "id": "recinella-guerino",
+      "name": "Recinella Guerino",
+      "district": "bologna",
+      "aftId": "bologna-san-vitale",
+      "substitute": {
+        "name": "Marsigli Angelica (*)"
+      }
+    },
+    {
+      "id": "canini-andrea",
+      "name": "Canini Andrea",
+      "district": "bologna",
+      "aftId": "bologna-savena-1",
+      "union": "SMI"
+    },
+    {
+      "id": "morini-beatrice",
+      "name": "Morini Beatrice",
+      "district": "bologna",
+      "aftId": "bologna-savena-1",
+      "substitute": {
+        "name": "Nusca Benedetta (*)",
+        "union": "SMI"
+      }
+    },
+    {
+      "id": "mosca-mariateresa",
+      "name": "Mosca Mariateresa",
+      "district": "bologna",
+      "aftId": "bologna-savena-1",
+      "union": "SNAMI",
+      "substitute": {
+        "name": "Giordano Francesca (*)"
+      }
+    },
+    {
+      "id": "diquattro-carlo",
+      "name": "Diquattro Carlo",
+      "district": "bologna",
+      "aftId": "bologna-savena-2",
+      "substitute": {
+        "name": "Bove Marilisa (*)",
+        "union": "SNAMI"
+      }
+    },
+    {
+      "id": "basile-giulia",
+      "name": "Basile Giulia",
+      "district": "bologna",
+      "aftId": "bologna-santo-stefano-1"
+    },
+    {
+      "id": "rupi-romina",
+      "name": "Rupi Romina",
+      "district": "bologna",
+      "aftId": "bologna-santo-stefano-2",
+      "union": "SNAMI"
     }
   ],
   "representatives": [],
-  "electionNotice": "Le candidature sono organizzate per distretto e AFT. L’elenco completo e i sostituti sono in aggiornamento sulla base delle comunicazioni AUSL. Il sostegno SMI–SNAMI è indicato separatamente, soltanto dopo la conferma.",
+  "electionNotice": "Elenco del 18 novembre 2026 per i sei distretti dell’AUSL di Bologna. Gli asterischi (*) riprendono la notazione dell’elenco.",
   "provincialRepresentatives": [],
   "regionalBoard": {
     "source": "https://sindacatomedicitaliani.it/organigrammi-regionali/emilia-romagna/",
@@ -678,8 +1059,8 @@
   ],
   "coalition": {
     "name": "SMI–SNAMI",
-    "title": "Il sostegno SMI–SNAMI, riconoscibile",
-    "description": "SMI e SNAMI coordinano il sostegno a una candidatura per AFT. Le candidature comunicate dall’AUSL e il sostegno sindacale sono informazioni distinte: il contrassegno SMI–SNAMI compare soltanto quando il sostegno è confermato."
+    "title": "Sostegno congiunto SMI–SNAMI",
+    "description": "SMI e SNAMI coordinano il sostegno alle candidature per AFT. Il contrassegno «Sostenuto da SMI–SNAMI» identifica le candidature per le quali entrambi i sindacati hanno confermato il proprio sostegno."
   },
   "aftRegistry": {
     "complete": true,

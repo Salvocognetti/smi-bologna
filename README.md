@@ -24,12 +24,14 @@ L’AIR contiene formulazioni diverse sui rinnovi tra art. 7, comma 6, e Allegat
 
 Per completare i seggi, aggiornare ciascuna voce in `voting.districts`: `status: "confirmed"`, `venue`, `address`, `dates` (se diverse dal calendario generale), `sessions` (elenco delle fasce di voto) e `sourceUrl` dell’avviso ufficiale. Una sede priva di fonte non viene mostrata come confermata. Date diverse da quelle comunicate per Bologna richiedono anche l’aggiornamento del relativo calendario.
 
-## Candidature aziendali e sostegno sindacale
+## Candidature AFT e iscrizioni sindacali
 
 L’elenco può contenere più candidati per AFT. `aftId` collega il candidato alla programmazione territoriale. I conteggi distinguono il numero dei candidati dal numero delle AFT coperte.
 
-Il contrassegno di sostegno richiede `endorsement: { "status": "confirmed", "coalition": "SMI–SNAMI" }`. In assenza di conferma il candidato resta pubblicato senza contrassegno. Il campo facoltativo `union` identifica lo schieramento del singolo nominativo (SMI in blu, SNAMI in giallo). Un candidato può indicare un vice con `substitute: { "name": "…", "union": "SNAMI" }` oppure sceglierlo in caso di elezione. Anche per il vice, `union` si omette quando manca l’indicazione. Il riferimento all’elenco aziendale può essere inserito in `officialSource: { "title": "…", "url": "…" }`. Il campo `profilePending` riguarda solo il completamento della presentazione, non l’ufficialità della candidatura o il sostegno sindacale.
+I campi `name` del candidato e del vice includono il titolo Dott. o Dott.ssa. Quando nell’elenco compare un vice proposto, inserirlo in `substitute` (esempio: `{ "name": "Dott.ssa …", "union": "SNAMI" }`). Se manca il nominativo, omettere `substitute`.
 
-Il sostegno SMI–SNAMI a Nicoletta Giulietti e Salvatore Cognetti è stato confermato esplicitamente il 7 novembre 2026. Entrambi i profili riportano il relativo contrassegno; il completamento della presentazione di Cognetti resta distinto dal sostegno confermato. Il prospetto del 18 novembre 2026 comprende le candidature nelle 32 AFT dei sei distretti dell’AUSL di Bologna. Per Imola occorre un elenco separato. Non pubblicare recapiti personali o metadati PEC non destinati al sito.
+Il campo facoltativo `union` indica l’iscrizione comunicata per quella persona (SMI in blu, SNAMI in giallo). Compilarlo separatamente per il candidato e per il vice. Ometterlo quando manca l’indicazione: il nome apparirà senza colore di sfondo. Il campo `profilePending` riguarda il completamento della presentazione. Il riferimento all’elenco aziendale può essere inserito in `officialSource: { "title": "…", "url": "…" }`.
+
+Il prospetto del 18 novembre 2026 comprende le candidature nelle 32 AFT dei sei distretti dell’AUSL di Bologna. Per Imola occorre un elenco separato. Non pubblicare recapiti personali o metadati PEC non destinati al sito.
 
 Verifiche senza dipendenze: `node --check app.js`, `node --check aft-guide.js`, `node --test tests/aft-guide.test.mjs`. Dopo modifiche a JS/CSS/dati, aggiornare insieme le versioni nelle URL di `index.html` e nei caricamenti di `app.js`.

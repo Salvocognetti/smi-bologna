@@ -151,3 +151,43 @@
   .candidate-support-badge{font-size:8px;padding:5px 7px;margin-bottom:10px}.candidate-substitute{font-size:11px}.candidate-source{margin:0 20px 20px;font-size:10px}
 }
 @media(max-width:370px){.guide-hero h1{font-size:39px}.guide-section-heading h2{font-size:27px}.election-announcement p{max-width:175px}.guide-timeline>li,.guide-timeline>li.is-featured{grid-template-columns:87px minmax(0,1fr)}.guide-timeline-date time{font-size:15px}}
+
+/* Schieramento individuale di candidati e vice proposti */
+.roster-legend {
+  margin: 1.5rem 0;
+  color: var(--ink);
+  font-size: .9375rem;
+  line-height: 1.65;
+}
+.roster-legend p + p { margin-top: .55rem; }
+.roster-highlight {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: .08em .32em;
+  border-radius: .2em;
+}
+.union-smi { color: #153f65; background-color: #d5e9ff; }
+.union-snami { color: #513800; background-color: #ffdf77; }
+.roster-union {
+  display: inline-block;
+  font: 700 .8rem/1.4 var(--display);
+  vertical-align: middle;
+  letter-spacing: .02em;
+  margin-left: .2em;
+}
+.candidate-overview--text { display: block; }
+.candidate-overview .candidate-label {
+  margin-bottom: .4rem;
+  font-size: .875rem;
+  line-height: 1.4;
+  letter-spacing: .01em;
+  text-transform: none;
+  color: var(--muted);
+}
+.candidate-identity h4 { line-height: 1.45; }
+.candidate-identity h4:last-child { margin: 0; }
+.candidate-substitute p {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}

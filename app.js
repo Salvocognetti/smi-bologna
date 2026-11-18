@@ -86,7 +86,7 @@ function homePage() {
     </div>
     <div class="hero-bottom"><span class="hero-location">${icons.pin} Bologna, uno sguardo sulla città</span><a class="hero-scroll" href="#/#territorio">IL TERRITORIO, DA VICINO <i aria-hidden="true">↓</i></a></div>
   </section>
-  <div class="container intro-band"><div class="band-heading">${icons.ballot}<div><strong>Elezioni dei referenti AFT</strong><span>Informazioni, candidature e sostegno SMI–SNAMI.</span></div></div><p>Conosci il ruolo. Consulta le regole.<br>Trova i candidati della tua AFT.</p><a href="#/elezioni" class="text-link">Vai alle candidature <span aria-hidden="true">↗</span></a></div>
+  <div class="container intro-band"><div class="band-heading">${icons.ballot}<div><strong>Elezioni dei referenti AFT</strong><span>Uno spazio dedicato alle candidature SMI e SNAMI.</span></div></div><p>Conosci il ruolo. Consulta le regole.<br>Trova i candidati della tua AFT.</p><a href="#/elezioni" class="text-link">Vai alle candidature <span aria-hidden="true">↗</span></a></div>
   <section class="container coalition-home">${coalitionNotice('home')}</section>
   <section class="container territory" id="territorio"><div class="section-heading"><div><p class="eyebrow">Una mappa, tanti territori</p><h2>Trova il tuo distretto.</h2></div><p>Esplora la mappa per trovare i rappresentanti sindacali e le candidature AFT del tuo territorio.</p></div>
     <div class="map-toolbar"><p class="map-hint">${icons.pin} Seleziona un distretto per conoscerlo</p><div class="view-toggle" aria-label="Visualizzazione del territorio"><button data-view="map" aria-pressed="true">${icons.map} Mappa</button><button data-view="list" aria-pressed="false">${icons.list} Elenco</button></div></div>
@@ -165,7 +165,7 @@ function renderDistrictPanel(d, tab) {
   const el=document.querySelector('#district-panel');
   el.setAttribute('aria-labelledby',isCandidates?'tab-candidates':'tab-reps');
   const cards=isCandidates?aftCandidateGroups(d,records):records.map(p=>personCard(p,false)).join('');
-  el.innerHTML=`<h2>${isCandidates?'Le candidature, AFT per AFT.':'I tuoi riferimenti SMI.'}</h2><p>${isCandidates?'I nominativi pubblicati per questo distretto. Il contrassegno SMI–SNAMI identifica soltanto le candidature con sostegno confermato.':'I riferimenti sindacali SMI per i medici del distretto.'}</p>${isCandidates?guideCallout()+coalitionNotice('district')+districtCoverage(d):''}${cards||`<div class="empty-state"><div class="empty-icon">${isCandidates?icons.check:icons.people}</div><div><h3>${isCandidates?'Le candidature stanno arrivando.':'I riferimenti saranno disponibili qui.'}</h3><p>${isCandidates?'Le candidature per questo distretto saranno disponibili qui, con l’AFT di riferimento e la presentazione di ciascun medico.':'Questa sezione accoglierà i nominativi, gli incarichi e i contatti dei rappresentanti sindacali, dopo la loro conferma.'}</p><span class="status-label"><i class="status-dot"></i> Contenuti in aggiornamento</span></div></div>`}${isCandidates?registryNotice(d):''}`;
+  el.innerHTML=`<h2>${isCandidates?'Le candidature, AFT per AFT.':'I tuoi riferimenti SMI.'}</h2><p>${isCandidates?'I candidati al ruolo di referente e i vice proposti nel distretto.':'I riferimenti sindacali SMI per i medici del distretto.'}</p>${isCandidates?guideCallout()+coalitionNotice('district')+districtCoverage(d)+(records.length?rosterLegend():''):''}${cards||`<div class="empty-state"><div class="empty-icon">${isCandidates?icons.check:icons.people}</div><div><h3>${isCandidates?'Le candidature stanno arrivando.':'I riferimenti saranno disponibili qui.'}</h3><p>${isCandidates?'Le candidature per questo distretto saranno disponibili qui, con l’AFT di riferimento e la presentazione di ciascun medico.':'Questa sezione accoglierà i nominativi, gli incarichi e i contatti dei rappresentanti sindacali, dopo la loro conferma.'}</p><span class="status-label"><i class="status-dot"></i> Contenuti in aggiornamento</span></div></div>`}${isCandidates?registryNotice(d):''}`;
 }
 
 function aftCandidateGroups(d, records) {
@@ -184,24 +184,51 @@ function candidateSlot(a) {
   return `<article class="candidate-slot" aria-label="Candidature in aggiornamento per ${esc(a.name)}"><div class="candidate-slot-icon">${icons.people}</div><div><p class="candidate-slot-kicker">Elezioni del Referente AFT</p><h4>Elenco in aggiornamento</h4><p>I nominativi comunicati dall’AUSL saranno riportati in questa sezione.</p></div></article>`;
 }
 
+function rosterLegend() {
+  return `<div class="roster-legend">
+    <p>I colori indicano lo schieramento di ciascuna persona. <span class="roster-highlight union-smi">SMI in blu</span> e <span class="roster-highlight union-snami">SNAMI in giallo</span>. In assenza di indicazioni, il nome appare su fondo neutro.</p>
+    <p>Chi si candida a referente può proporre un vice oppure sceglierlo dopo l’elezione. Referente e vice possono appartenere a sindacati diversi.</p>
+  </div>`;
+}
+
+function rosterName(person) {
+  if (person.union !== 'SMI' && person.union !== 'SNAMI') return esc(person.name);
+  return `<span class="roster-highlight union-${person.union.toLowerCase()}">${esc(person.name)} <span class="roster-union">${person.union}</span></span>`;
+}
+
 function personCard(p,candidate) {
   if(!candidate)return `<article class="empty-state">${p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.name)}" width="64" height="64" loading="lazy">`:`<div class="empty-icon">${icons.people}</div>`}<div><span class="mini-label">${esc(p.role)}</span><h3>${esc(p.name)}</h3><p>${esc(p.bio||'')}</p>${p.email?`<a class="text-link" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:''}</div></article>`;
-  const paragraphs=String(p.bio||'').split(/\n\s*\n/).filter(t=>t.trim());
-  const portrait=p.photo?`<img class="candidate-portrait" src="${esc(p.photo)}" alt="${esc(p.name)}" width="180" height="225" loading="lazy" decoding="async">`:`<div class="candidate-photo-placeholder">${icons.people}<span>Foto in arrivo</span></div>`;
-  const supported=hasCoalitionSupport(p);
-  return `<article class="candidate-card${supported?' is-supported':''}"><div class="candidate-overview"><div class="candidate-photo">${portrait}</div><div class="candidate-identity"><span class="candidate-label">Candidato Referente AFT</span>${supported?'<span class="candidate-support-badge">Sostenuto da SMI–SNAMI</span>':''}<h4>${esc(p.name)}</h4><p class="candidate-profession">${esc(p.role||'Medico di medicina generale')}</p>${p.practiceLocation?`<p class="candidate-location">${icons.pin}<span>${esc(p.practiceLocation)}</span></p>`:''}${p.substitute?.name?`<p class="candidate-substitute"><strong>Candidato sostituto</strong><br>${esc(p.substitute.name)}</p>`:''}${p.profilePending?'<span class="candidate-profile-status">Profilo in aggiornamento</span>':''}</div></div>${paragraphs.length?`<div class="candidate-statement">${paragraphs.map(t=>`<p>${esc(t.trim())}</p>`).join('')}</div>`:p.profilePending?'<p class="candidate-pending">La presentazione del candidato sarà disponibile prossimamente.</p>':''}${p.officialSource?.url?`<p class="candidate-source"><a href="${esc(p.officialSource.url)}" target="_blank" rel="noopener noreferrer">${esc(p.officialSource.title||'Elenco candidature AUSL')} ↗</a></p>`:''}${p.email?`<a class="text-link candidate-contact" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:''}</article>`;
+  const supported = hasCoalitionSupport(p);
+  const paragraphs = String(p.bio || '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
+  return `<article class="candidate-card${supported ? ' is-supported' : ''}">
+    <div class="candidate-overview${p.photo ? '' : ' candidate-overview--text'}">
+      ${p.photo ? `<div class="candidate-photo"><img class="candidate-portrait" src="${esc(p.photo)}" alt="${esc(p.name)}" width="180" height="225" loading="lazy" decoding="async"></div>` : ''}
+      <div class="candidate-identity">
+        <span class="candidate-label">Candidato referente AFT</span>
+        <h4>${rosterName(p)}</h4>
+        ${supported ? '<span class="candidate-support-badge">Sostenuto da SMI–SNAMI</span>' : ''}
+        ${p.role ? `<p class="candidate-profession">${esc(p.role)}</p>` : ''}
+        ${p.practiceLocation ? `<p class="candidate-location">${icons.pin}<span>${esc(p.practiceLocation)}</span></p>` : ''}
+        ${p.substitute?.name ? `<div class="candidate-substitute"><span class="candidate-label">Vice proposto</span><p>${rosterName(p.substitute)}</p></div>` : ''}
+        ${p.profilePending ? '<span class="candidate-profile-status">Profilo in aggiornamento</span>' : ''}
+      </div>
+    </div>
+    ${paragraphs.length ? `<div class="candidate-statement">${paragraphs.map(t => `<p>${esc(t)}</p>`).join('')}</div>` : p.profilePending ? '<p class="candidate-pending">La presentazione del candidato sarà disponibile prossimamente.</p>' : ''}
+    ${p.officialSource?.url ? `<p class="candidate-source"><a href="${esc(p.officialSource.url)}" target="_blank" rel="noopener noreferrer">${esc(p.officialSource.title || 'Elenco candidature AUSL')} ↗</a></p>` : ''}
+    ${p.email ? `<a class="text-link candidate-contact" href="mailto:${esc(p.email)}">${esc(p.email)}</a>` : ''}
+  </article>`;
 }
 
 function electionsPage() {
   document.title='Elezioni dei referenti AFT — SMI Bologna';
-  main.innerHTML=`<section class="container page-header">${breadcrumb('Elezioni AFT')}<p class="eyebrow">Elezioni dei referenti AFT</p><h1>Conosci i candidati.<br><em>AFT per AFT.</em></h1><p class="lead">Un punto di riferimento per le candidature del tuo territorio e per il sostegno confermato da SMI–SNAMI.</p></section><section class="container elections-content">${guideCallout()}${coalitionNotice()}<div class="election-note">${esc(content.electionNotice)}</div><div class="filter-bar"><label for="district-search">Cerca territorio o candidato<input id="district-search" type="search" placeholder="Distretto, comune, AFT o candidato…" autocomplete="off"></label><label for="ausl-filter">Azienda sanitaria<select id="ausl-filter"><option value="all">Tutte le aziende sanitarie</option><option value="AUSL di Bologna">AUSL di Bologna</option><option value="AUSL di Imola">AUSL di Imola</option></select></label></div><div class="election-grid" id="election-grid" aria-live="polite"></div><p class="notice-small">L’elenco completo delle candidature e dei sostituti è in aggiornamento. La presenza di un nome non implica il sostegno sindacale: il contrassegno SMI–SNAMI appare solo dopo la conferma.</p>${registrySource()}</section>${joinSection()}`;
+  main.innerHTML=`<section class="container page-header">${breadcrumb('Elezioni AFT')}<p class="eyebrow">Elezioni dei referenti AFT</p><h1>Conosci i candidati.<br><em>AFT per AFT.</em></h1><p class="lead">Scegli il distretto per consultare le candidature a referente e i vice proposti in ciascuna AFT.</p></section><section class="container elections-content">${guideCallout()}${coalitionNotice()}<div class="election-note">${esc(content.electionNotice)}</div>${rosterLegend()}<div class="filter-bar"><label for="district-search">Cerca un territorio o un nominativo<input id="district-search" type="search" placeholder="Distretto, AFT, candidato o vice…" autocomplete="off"></label><label for="ausl-filter">Azienda sanitaria<select id="ausl-filter"><option value="all">Tutte le aziende sanitarie</option><option value="AUSL di Bologna">AUSL di Bologna</option><option value="AUSL di Imola">AUSL di Imola</option></select></label></div><div class="election-grid" id="election-grid" aria-live="polite"></div>${registrySource()}</section>${joinSection()}`;
   const draw=()=>{
     const q=document.querySelector('#district-search').value.trim().toLocaleLowerCase('it');
     const ausl=document.querySelector('#ausl-filter').value;
     const ds=geography.districts.filter(d=>{
       const people=content.candidates.filter(c=>c.district===d.id);
       const afts=(content.afts||[]).filter(a=>a.district===d.id);
-      const searchable=[d.name,...d.communes,...afts.flatMap(a=>[a.name,...(a.aliases||[]),...(a.communes||[]),...(a.areas||[])]),...people.flatMap(c=>[c.name,c.aft,c.practiceLocation])].filter(Boolean).join(' ').toLocaleLowerCase('it');
+      const searchable=[d.name,...d.communes,...afts.flatMap(a=>[a.name,...(a.aliases||[]),...(a.communes||[]),...(a.areas||[])]),...people.flatMap(c=>[c.name,c.substitute?.name,c.aft,c.practiceLocation])].filter(Boolean).join(' ').toLocaleLowerCase('it');
       return (ausl==='all'||d.ausl===ausl)&&searchable.includes(q);
     });
     document.querySelector('#election-grid').innerHTML=ds.length?ds.map(d=>{
@@ -296,7 +323,7 @@ function route() {
 
 async function init() {
   try {
-    [geography,content,credits,aftGuide]=await Promise.all(['./assets/district-map.json','./content.json?v=20261107-sostegno-confermato','./assets/photo-credits.json','./aft-guide.json?v=20261107-guida-aft'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
+    [geography,content,credits,aftGuide]=await Promise.all(['./assets/district-map.json','./content.json?v=20261118-candidature','./assets/photo-credits.json','./aft-guide.json?v=20261107-guida-aft'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url);return r.json()}));
     document.querySelector('#year').textContent=new Date().getFullYear();
     route();
     window.addEventListener('hashchange',route);
